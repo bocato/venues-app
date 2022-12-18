@@ -12,11 +12,16 @@ struct AppRootScene: View {
     
     @ViewBuilder
     private var nearMeTabView: some View {
-        NearMeScene()
-            .tabItem {
-                Image(systemName: "location.fill")
-                Text("Near Me")
-            }
+        NearMeScene(
+            store: .init(
+                initialState: .init(),
+                reducer: NearMeFeature()
+            )
+        )
+        .tabItem {
+            Image(systemName: "location.fill")
+            Text("Near Me")
+        }
     }
     
     @ViewBuilder private var listTabView: some View {

@@ -18,9 +18,15 @@ public struct PlacesService: PlacesServiceProtocol {
     
     // MARK: - Public API
     
-    public func searchPlaces(_ request: SearchPlacesRequest) async throws -> Any {
+    public func searchPlaces(_ request: SearchPlacesRequest) async throws -> [FoursquarePlace] {
         let request: PlacesRequest = .search(request)
-        let rawResponse = try await dispatcher.asyncResponse(for: request)
-        return rawResponse
+        do {
+            
+        }
+        let response = try await dispatcher.asyncResponse(for: request)
+        // TODO: - Better error handling
+        let decodedResponse = try jsonDecoder.decode(SearchPlacesResponse.self, from: response.data)
+        let places = decodedResponse.results
+        return places
     }
 }

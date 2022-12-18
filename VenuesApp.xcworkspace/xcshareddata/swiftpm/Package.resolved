@@ -82,6 +82,15 @@
       }
     },
     {
+      "identity" : "tca-boundaries",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/bocato/tca-boundaries",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0432ec80a5d3cfafe5864ae049c666bbb27359cf"
+      }
+    },
+    {
       "identity" : "xctest-dynamic-overlay",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",

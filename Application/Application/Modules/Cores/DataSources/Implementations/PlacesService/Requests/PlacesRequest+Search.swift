@@ -10,3 +10,8 @@ extension SearchPlacesRequest {
         )
     }
 }
+
+struct SearchPlacesResponse: Decodable {
+    typealias Result = FoursquarePlace
+    let results: [Result]
+}

@@ -35,6 +35,14 @@
 		E5977EC1294E87CA001BD2EC /* PlacesServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EC0294E87CA001BD2EC /* PlacesServiceInterface.swift */; };
 		E5977EC4294E884E001BD2EC /* SearchPlacesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EC3294E884E001BD2EC /* SearchPlacesRequest.swift */; };
 		E5977EC7294E8AF3001BD2EC /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = E5977EC6294E8AF3001BD2EC /* SnapshotTesting */; };
+		E5977ECE294E8BCE001BD2EC /* URLRequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977ECD294E8BCE001BD2EC /* URLRequestBuilderTests.swift */; };
+		E5977ED2294E8BF8001BD2EC /* NetworkStatusManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977ED1294E8BF8001BD2EC /* NetworkStatusManagerTests.swift */; };
+		E5977ED5294E907B001BD2EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5977ED4294E907B001BD2EC /* Localizable.strings */; };
+		E5977ED9294E90C3001BD2EC /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = E5977ED8294E90C3001BD2EC /* swiftgen.yml */; };
+		E5977EDE294E9227001BD2EC /* SearchPlacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EDD294E9227001BD2EC /* SearchPlacesResponse.swift */; };
+		E5977EE4294E9E6F001BD2EC /* TCABoundaries in Frameworks */ = {isa = PBXBuildFile; productRef = E5977EE3294E9E6F001BD2EC /* TCABoundaries */; };
+		E5977EE6294E9F73001BD2EC /* NearMeFeature+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EE5294E9F73001BD2EC /* NearMeFeature+State.swift */; };
+		E5977EE8294E9F85001BD2EC /* NearMeFeature+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EE7294E9F85001BD2EC /* NearMeFeature+Action.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +83,13 @@
 		E5977EBA294E8766001BD2EC /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
 		E5977EC0294E87CA001BD2EC /* PlacesServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesServiceInterface.swift; sourceTree = "<group>"; };
 		E5977EC3294E884E001BD2EC /* SearchPlacesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesRequest.swift; sourceTree = "<group>"; };
+		E5977ECD294E8BCE001BD2EC /* URLRequestBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilderTests.swift; sourceTree = "<group>"; };
+		E5977ED1294E8BF8001BD2EC /* NetworkStatusManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusManagerTests.swift; sourceTree = "<group>"; };
+		E5977ED4294E907B001BD2EC /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		E5977ED8294E90C3001BD2EC /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		E5977EDD294E9227001BD2EC /* SearchPlacesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesResponse.swift; sourceTree = "<group>"; };
+		E5977EE5294E9F73001BD2EC /* NearMeFeature+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearMeFeature+State.swift"; sourceTree = "<group>"; };
+		E5977EE7294E9F85001BD2EC /* NearMeFeature+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearMeFeature+Action.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5977E99294E8012001BD2EC /* ComposableArchitecture in Frameworks */,
+				E5977EE4294E9E6F001BD2EC /* TCABoundaries in Frameworks */,
 				E5977E9B294E8012001BD2EC /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +154,7 @@
 		E5977E61294E7BD9001BD2EC /* ApplicationTests */ = {
 			isa = PBXGroup;
 			children = (
+				E5977EC8294E8B5A001BD2EC /* Modules */,
 				E5977E62294E7BD9001BD2EC /* ApplicationTests.swift */,
 			);
 			path = ApplicationTests;
@@ -155,6 +172,7 @@
 		E5977E7C294E7E01001BD2EC /* Cores */ = {
 			isa = PBXGroup;
 			children = (
+				E5977ED3294E903F001BD2EC /* Localization */,
 				E5977EB2294E8327001BD2EC /* DataSources */,
 				E5977EAF294E8148001BD2EC /* MyFoundation */,
 				E5977E80294E7E1F001BD2EC /* LocationManager */,
@@ -254,6 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				E5977E90294E7F84001BD2EC /* NearMeScene.swift */,
+				E5977EE5294E9F73001BD2EC /* NearMeFeature+State.swift */,
+				E5977EE7294E9F85001BD2EC /* NearMeFeature+Action.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -333,7 +353,7 @@
 		E5977EBE294E87AB001BD2EC /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				E5977EC2294E882A001BD2EC /* RequestModels */,
+				E5977EDC294E9209001BD2EC /* Models */,
 				E5977EC0294E87CA001BD2EC /* PlacesServiceInterface.swift */,
 			);
 			path = Interfaces;
@@ -347,12 +367,111 @@
 			path = Implementations;
 			sourceTree = "<group>";
 		};
-		E5977EC2294E882A001BD2EC /* RequestModels */ = {
+		E5977EC2294E882A001BD2EC /* Request */ = {
 			isa = PBXGroup;
 			children = (
 				E5977EC3294E884E001BD2EC /* SearchPlacesRequest.swift */,
 			);
-			path = RequestModels;
+			path = Request;
+			sourceTree = "<group>";
+		};
+		E5977EC8294E8B5A001BD2EC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E5977EC9294E8B5F001BD2EC /* Cores */,
+				E5977ECA294E8B64001BD2EC /* Features */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E5977EC9294E8B5F001BD2EC /* Cores */ = {
+			isa = PBXGroup;
+			children = (
+				E5977ECC294E8BBE001BD2EC /* Networking */,
+			);
+			path = Cores;
+			sourceTree = "<group>";
+		};
+		E5977ECA294E8B64001BD2EC /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		E5977ECC294E8BBE001BD2EC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E5977ED0294E8BEA001BD2EC /* Dispatcher */,
+				E5977ECF294E8BE2001BD2EC /* Reachability */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E5977ECF294E8BE2001BD2EC /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				E5977ED1294E8BF8001BD2EC /* NetworkStatusManagerTests.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		E5977ED0294E8BEA001BD2EC /* Dispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				E5977ECD294E8BCE001BD2EC /* URLRequestBuilderTests.swift */,
+			);
+			path = Dispatcher;
+			sourceTree = "<group>";
+		};
+		E5977ED3294E903F001BD2EC /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				E5977EDA294E90E1001BD2EC /* Resources */,
+				E5977ED7294E90A2001BD2EC /* Configuration */,
+				E5977ED6294E9095001BD2EC /* Generated */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		E5977ED6294E9095001BD2EC /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		E5977ED7294E90A2001BD2EC /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				E5977ED8294E90C3001BD2EC /* swiftgen.yml */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		E5977EDA294E90E1001BD2EC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E5977ED4294E907B001BD2EC /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E5977EDB294E9202001BD2EC /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				E5977EDD294E9227001BD2EC /* SearchPlacesResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		E5977EDC294E9209001BD2EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5977EC2294E882A001BD2EC /* Request */,
+				E5977EDB294E9202001BD2EC /* Response */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +493,7 @@
 			packageProductDependencies = (
 				E5977E98294E8012001BD2EC /* ComposableArchitecture */,
 				E5977E9A294E8012001BD2EC /* Dependencies */,
+				E5977EE3294E9E6F001BD2EC /* TCABoundaries */,
 			);
 			productName = Application;
 			productReference = E5977E4E294E7BD8001BD2EC /* Application.app */;
@@ -431,6 +551,7 @@
 			packageReferences = (
 				E5977E97294E8012001BD2EC /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				E5977EC5294E8AF3001BD2EC /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				E5977EE2294E9E6F001BD2EC /* XCRemoteSwiftPackageReference "tca-boundaries" */,
 			);
 			productRefGroup = E5977E4F294E7BD8001BD2EC /* Products */;
 			projectDirPath = "";
@@ -448,7 +569,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5977E59294E7BD9001BD2EC /* Preview Assets.xcassets in Resources */,
+				E5977ED5294E907B001BD2EC /* Localizable.strings in Resources */,
 				E5977E56294E7BD9001BD2EC /* Assets.xcassets in Resources */,
+				E5977ED9294E90C3001BD2EC /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +601,7 @@
 				E5977EA4294E8094001BD2EC /* HTTPRequestDispatcherInterface.swift in Sources */,
 				E5977EAC294E8129001BD2EC /* NetworkStatusManager.swift in Sources */,
 				E5977EC4294E884E001BD2EC /* SearchPlacesRequest.swift in Sources */,
+				E5977EE6294E9F73001BD2EC /* NearMeFeature+State.swift in Sources */,
 				E5977EBB294E8766001BD2EC /* PlacesService.swift in Sources */,
 				E5977EA8294E8100001BD2EC /* HTTPRequestDispatcher.swift in Sources */,
 				E5977E9D294E803A001BD2EC /* HTTPRequestError.swift in Sources */,
@@ -485,6 +609,8 @@
 				E5977E84294E7E49001BD2EC /* LocationManagerInterface.swift in Sources */,
 				E5977EC1294E87CA001BD2EC /* PlacesServiceInterface.swift in Sources */,
 				E5977EAE294E8135001BD2EC /* NWPathMonitorAbstraction.swift in Sources */,
+				E5977EE8294E9F85001BD2EC /* NearMeFeature+Action.swift in Sources */,
+				E5977EDE294E9227001BD2EC /* SearchPlacesResponse.swift in Sources */,
 				E5977EB6294E8381001BD2EC /* PlacesRequest.swift in Sources */,
 				E5977EA0294E8052001BD2EC /* HTTPResponseData.swift in Sources */,
 				E5977E52294E7BD8001BD2EC /* VenuesApp.swift in Sources */,
@@ -496,6 +622,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5977E63294E7BD9001BD2EC /* ApplicationTests.swift in Sources */,
+				E5977ED2294E8BF8001BD2EC /* NetworkStatusManagerTests.swift in Sources */,
+				E5977ECE294E8BCE001BD2EC /* URLRequestBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +899,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		E5977EE2294E9E6F001BD2EC /* XCRemoteSwiftPackageReference "tca-boundaries" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bocato/tca-boundaries";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -788,6 +924,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E5977EC5294E8AF3001BD2EC /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
 			productName = SnapshotTesting;
+		};
+		E5977EE3294E9E6F001BD2EC /* TCABoundaries */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5977EE2294E9E6F001BD2EC /* XCRemoteSwiftPackageReference "tca-boundaries" */;
+			productName = TCABoundaries;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

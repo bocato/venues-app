@@ -1,0 +1,6 @@
+strings:
+   inputs:
+     - ../Resources/Localizable.strings
+   outputs:
+     - templatePath: ../../../../../../tools/swiftgen/custom-strings-template.stencil
+       output: ./Generated/Strings.generated.swift

@@ -42,13 +42,13 @@ struct VenueCard: View {
     private var descriptionContainerView: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Text 1")
+                Text(model.name)
                     .font(.headline)
                     .foregroundColor(.accentColor)
-                Text("Text 2")
+                Text(model.kind)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
-                Text("Text 3")
+                Text(model.locationInfo)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -72,9 +72,11 @@ struct VenueCard: View {
     
     @ViewBuilder
     private var userCommentView: some View {
-        Text(model.comment)
-            .font(.subheadline)
-            .foregroundColor(.primary)
+        if let comment = model.comment {
+            Text(comment)
+                .font(.subheadline)
+                .foregroundColor(.primary)
+        }
     }
 }
 
@@ -82,10 +84,8 @@ struct VenueCard: View {
 struct VenueCard_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            VenueCard(model: .mock)
-            VenueCard(model: .mock)
-            VenueCard(model: .mock)
-            VenueCard(model: .mock)
+            VenueCard(model: .mockWithComment)
+            VenueCard(model: .fixture())
         }
     }
 }

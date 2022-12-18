@@ -27,3 +27,25 @@ public struct LocationManager {
         }
     }
 }
+
+public extension CLAuthorizationStatus {
+    var needsPermissionRequest: Bool {
+        self == .restricted || self == .denied || self == .notDetermined
+    }
+}
+
+// MARK: - TCA Dependency Injection
+
+import Dependencies
+
+extension LocationManager: DependencyKey {
+    public static var liveValue: LocationManager = .live // TODO: Add secondary DI system to decouple interface/implementation
+}
+
+extension DependencyValues {
+    public var locationManager: LocationManager {
+        get { self[LocationManager.self] }
+        set { self[LocationManager.self] = newValue }
+    }
+}
+
