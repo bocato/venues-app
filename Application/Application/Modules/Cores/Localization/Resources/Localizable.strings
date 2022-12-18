@@ -1,22 +1,2 @@
-// MARK: - ProductList
-"productList.navigationBarTitle" = "Products List";
-"productList.emptyView.title" = "Oh no!";
-"productList.emptyView.subtitle" = "We could not find the content for this page, try another Search Term...";
-"productList.filteringView.text" = "Filtering...";
-"productList.filteringView.emptyResults" = "Could not find anything related to the input.";
-
-// MARK: - Product Details
-"productDetails.emptyView.title" = "Oh no!";
-"productDetails.emptyView.subtitle" = "We could not find the content for this page, try again soon...";
-"productDetails.productReviewRow.locale" = "Locale:";
-"productDetails.productReviewRow.rating" = "Rating:";
-"productDetails.button.addReview" = "Add Review";
-
-// MARK: - Add Review Modal
-"addReviewModal.title" = "Add your review";
-"addReviewModal.ratingContainer.title" = "Rating";
-"addReviewModal.reviewContainer.title" = "Your Review";
-"addReviewModal.bottomContainer.button.save" = "Save";
-"addReviewModal.bottomContainer.button.cancel" = "Cancel";
-"addReviewModal.errorAlert.title" = "Ops!";
-"addReviewModal.errorAlert.message" = "Something is wrong with our servers, try again later.";
+// MARK: - NearMe Scene
+"nearMe.navigationTitle" = "Near Me";

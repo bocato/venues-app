@@ -3,4 +3,4 @@ strings:
      - ../Resources/Localizable.strings
    outputs:
      - templatePath: ../../../../../../tools/swiftgen/custom-strings-template.stencil
-       output: ./Generated/Strings.generated.swift
+       output: ../Generated/Strings.generated.swift

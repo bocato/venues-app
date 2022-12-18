@@ -103,7 +103,7 @@ struct NearMeScene: View {
                 }
                 .listRowSeparator(.visible)
                 .listStyle(.inset)
-                .navigationTitle("Near me")
+                .navigationTitle(L10n.NearMe.navigationTitle)
                 .onAppear { viewStore.send(.view(.onAppear)) }
             }
         }

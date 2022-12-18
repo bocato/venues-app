@@ -10,7 +10,7 @@ environment:
 	brew install swiftgen || true
 
 update_strings:
-	cd Application/Modules/Core/Localization/Configuration; swiftgen;
+	cd Application/Application/Modules/Cores/Localization/Configuration; swiftgen;
 
 code_beautify:
 	cd Application; swiftformat ./; swiftlint autocorrect;

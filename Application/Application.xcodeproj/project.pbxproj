@@ -43,6 +43,7 @@
 		E5977EE4294E9E6F001BD2EC /* TCABoundaries in Frameworks */ = {isa = PBXBuildFile; productRef = E5977EE3294E9E6F001BD2EC /* TCABoundaries */; };
 		E5977EE6294E9F73001BD2EC /* NearMeFeature+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EE5294E9F73001BD2EC /* NearMeFeature+State.swift */; };
 		E5977EE8294E9F85001BD2EC /* NearMeFeature+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EE7294E9F85001BD2EC /* NearMeFeature+Action.swift */; };
+		E5977EEF294EA6CC001BD2EC /* Strings.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EEE294EA6CC001BD2EC /* Strings.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		E5977EDD294E9227001BD2EC /* SearchPlacesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesResponse.swift; sourceTree = "<group>"; };
 		E5977EE5294E9F73001BD2EC /* NearMeFeature+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearMeFeature+State.swift"; sourceTree = "<group>"; };
 		E5977EE7294E9F85001BD2EC /* NearMeFeature+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearMeFeature+Action.swift"; sourceTree = "<group>"; };
+		E5977EEE294EA6CC001BD2EC /* Strings.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.generated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +439,7 @@
 		E5977ED6294E9095001BD2EC /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				E5977EEE294EA6CC001BD2EC /* Strings.generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				E5977EB1294E8161001BD2EC /* DispatchingQueues.swift in Sources */,
 				E5977E8C294E7ECE001BD2EC /* AppRootScene.swift in Sources */,
 				E5977EA2294E8076001BD2EC /* HTTPRequest.swift in Sources */,
+				E5977EEF294EA6CC001BD2EC /* Strings.generated.swift in Sources */,
 				E5977EA6294E80BE001BD2EC /* URLRequestBuilder.swift in Sources */,
 				E5977E94294E7FAD001BD2EC /* VenueCardView.swift in Sources */,
 				E5977EB9294E8699001BD2EC /* PlacesRequest+Search.swift in Sources */,
