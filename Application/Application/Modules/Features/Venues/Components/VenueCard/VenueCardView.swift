@@ -12,7 +12,7 @@ struct VenueCard: View {
                 Spacer()
                 scoreTagView
             }
-            userCommentView
+            descriptionView
         }
     }
     
@@ -20,14 +20,11 @@ struct VenueCard: View {
     private var imageView: some View {
         AsyncImage(url: .init(string: model.imageURL)) { phase in
             switch phase {
-            case .empty:
-                Image(systemName: "gear.fill") // TODO: Find a proper empty placeholder
+            case .empty, .failure:
+                Image(systemName: "photo")
                 
             case let .success(image):
                 image.resizable()
-
-            case .failure:
-                Image(systemName: "gear.fill") // TODO: Find a proper error placeholder
                 
             @unknown default:
                 fatalError()
@@ -45,9 +42,11 @@ struct VenueCard: View {
                 Text(model.name)
                     .font(.headline)
                     .foregroundColor(.accentColor)
-                Text(model.kind)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                if let kind = model.kind {
+                    Text(kind)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
                 Text(model.locationInfo)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
@@ -71,9 +70,9 @@ struct VenueCard: View {
     }
     
     @ViewBuilder
-    private var userCommentView: some View {
-        if let comment = model.comment {
-            Text(comment)
+    private var descriptionView: some View {
+        if let description = model.description {
+            Text(description)
                 .font(.subheadline)
                 .foregroundColor(.primary)
         }
@@ -84,8 +83,8 @@ struct VenueCard: View {
 struct VenueCard_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            VenueCard(model: .mockWithComment)
             VenueCard(model: .fixture())
+            VenueCard(model: .mockWithDescription)
         }
     }
 }

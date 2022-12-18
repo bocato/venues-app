@@ -6,6 +6,7 @@ public struct LocationManager {
     public internal(set) var authorizationStatus: () -> CLAuthorizationStatus
     public internal(set) var requestWhenInUseAuthorization: () -> Void
     public internal(set) var requestLocation: () -> Void
+    public internal(set) var lastLocation: () -> CLLocation?
     public internal(set) var delegate: AnyPublisher<DelegateEvent, Never>
     
     public enum DelegateEvent: Equatable {

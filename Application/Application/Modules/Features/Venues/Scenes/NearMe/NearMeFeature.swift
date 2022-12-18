@@ -9,6 +9,7 @@ struct NearMeFeature: ReducerProtocol {
     
     @Dependency(\.locationManager) var locationManager
     @Dependency(\.placesService) var placesService
+    @Dependency(\.venueCardMapper) var venueCardMapper
     @Dependency(\.mainQueue) var mainQueue
     
     // MARK: - Logic
@@ -49,13 +50,19 @@ struct NearMeFeature: ReducerProtocol {
                     .init(value: ._internal(.observeLocationUpdates))
                 )
             }
-            return .none
+            return .init(value: ._internal(.loadVenuesUsingCurrentLocation))
             
         case .requestLocationPermissionsButtonTapped:
             return .concatenate(
                 .init(value: .delegate(.needsLocationPermission)),
                 .init(value: ._internal(.observeLocationUpdates))
             )
+            
+        case .onErrorRetryButtonTapped:
+            return .init(value: ._internal(.loadVenuesUsingCurrentLocation))
+            
+        case .onPullToRefresh:
+            return .init(value: ._internal(.loadVenuesUsingCurrentLocation))
         }
     }
     
@@ -89,11 +96,44 @@ struct NearMeFeature: ReducerProtocol {
                     longitude: coordinate.longitude,
                     radius: state.searchRadius
                 )
-                return .init(value: ._internal(.loadVenues(request))) // TODO: add radius and location
+                return .init(value: ._internal(.loadVenues(request)))
             }
             
-        case let .loadVenues(request):
+        case .loadVenuesUsingCurrentLocation:
+            guard
+                let coordinate = locationManager.lastLocation()?.coordinate
+            else {
+                state.viewStage = .noLocation
+                return .none
+            }
+            let request: SearchPlacesRequest = .init(
+                latitude: coordinate.latitude,
+                longitude: coordinate.longitude,
+                radius: state.searchRadius
+            )
+            return .init(value: ._internal(.loadVenues(request)))
             
+        case let .loadVenues(request):
+            return .task { [placesService] in
+                let result: TaskResult<[FoursquarePlace]>
+                do {
+                    let values = try await placesService.searchPlaces(request)
+                    result = .success(values)
+                } catch {
+                    result = .failure(error)
+                }
+                return ._internal(.searchPlacesResult(result))
+            }
+            
+        case let .searchPlacesResult(.success(venues)):
+            let mapCards = venueCardMapper.map
+            let cards = venues.map(mapCards)
+            state.viewStage = .venuesLoaded(cards)
+            return .none
+            
+        case .searchPlacesResult(.failure):
+            state.viewStage = .error
+            return .none
         }
     }
 }

@@ -11,12 +11,16 @@ extension NearMeFeature {
         enum ViewAction: Equatable {
             case onAppear
             case requestLocationPermissionsButtonTapped
+            case onErrorRetryButtonTapped
+            case onPullToRefresh
         }
         
         enum InternalAction: Equatable {
             case observeLocationUpdates
             case handleLocationManagerEvent(LocationManager.DelegateEvent)
+            case loadVenuesUsingCurrentLocation
             case loadVenues(SearchPlacesRequest)
+            case searchPlacesResult(TaskResult<[FoursquarePlace]>)
         }
         
         enum DelegateAction: Equatable {

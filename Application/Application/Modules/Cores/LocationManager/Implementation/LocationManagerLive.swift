@@ -18,6 +18,7 @@ public extension LocationManager {
             authorizationStatus: { locationManager.authorizationStatus },
             requestWhenInUseAuthorization: locationManager.requestWhenInUseAuthorization,
             requestLocation: locationManager.requestLocation,
+            lastLocation: { locationManager.location },
             delegate: managerDelegate
         )
     }
