@@ -13,10 +13,52 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name
 internal enum L10n {
 
+  internal enum EmptyContentView {
+    internal enum Button {
+      /// Refresh
+      internal static var text: String {
+        L10n.tr("Localizable", "emptyContentView.button.text")
+      }
+    }
+  }
+
+  internal enum ErrorView {
+    /// Something is wrong, try again later.
+    internal static var subtitle: String {
+      L10n.tr("Localizable", "errorView.subtitle")
+    }
+    /// Ops!
+    internal static var title: String {
+      L10n.tr("Localizable", "errorView.title")
+    }
+    internal enum Button {
+      /// Retry
+      internal static var text: String {
+        L10n.tr("Localizable", "errorView.button.text")
+      }
+    }
+  }
+
   internal enum NearMe {
     /// Near Me
     internal static var navigationTitle: String {
       L10n.tr("Localizable", "nearMe.navigationTitle")
+    }
+    /// Near Me
+    internal static var tabItemTitle: String {
+      L10n.tr("Localizable", "nearMe.tabItemTitle")
+    }
+    internal enum InfoView {
+      internal enum NoLocation {
+        /// Request location permission
+        internal static var buttonTitle: String {
+          L10n.tr("Localizable", "nearMe.infoView.noLocation.buttonTitle")
+        }
+        /// To find the places nearby, we need location info.\nTap the button below to request permissions for that.
+        internal static var text: String {
+          L10n.tr("Localizable", "nearMe.infoView.noLocation.text")
+        }
+      }
     }
   }
 }

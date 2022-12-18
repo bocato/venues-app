@@ -44,6 +44,14 @@
 		E5977EE6294E9F73001BD2EC /* NearMeFeature+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EE5294E9F73001BD2EC /* NearMeFeature+State.swift */; };
 		E5977EE8294E9F85001BD2EC /* NearMeFeature+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EE7294E9F85001BD2EC /* NearMeFeature+Action.swift */; };
 		E5977EEF294EA6CC001BD2EC /* Strings.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EEE294EA6CC001BD2EC /* Strings.generated.swift */; };
+		E5977EF1294F85D2001BD2EC /* AppRootFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EF0294F85D2001BD2EC /* AppRootFeature.swift */; };
+		E5977EF3294F85E0001BD2EC /* NearMeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EF2294F85E0001BD2EC /* NearMeFeature.swift */; };
+		E5977EF5294F8678001BD2EC /* AppRootFeature+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EF4294F8678001BD2EC /* AppRootFeature+State.swift */; };
+		E5977EF7294F8682001BD2EC /* AppRootFeature+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EF6294F8682001BD2EC /* AppRootFeature+Action.swift */; };
+		E5977EFB294F8820001BD2EC /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EFA294F8820001BD2EC /* InformationView.swift */; };
+		E5977EFE294F884F001BD2EC /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EFD294F884F001BD2EC /* Metrics.swift */; };
+		E5977F00294F8874001BD2EC /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EFF294F8874001BD2EC /* ErrorView.swift */; };
+		E5977F02294F893B001BD2EC /* EmptyContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F01294F893B001BD2EC /* EmptyContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +100,14 @@
 		E5977EE5294E9F73001BD2EC /* NearMeFeature+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearMeFeature+State.swift"; sourceTree = "<group>"; };
 		E5977EE7294E9F85001BD2EC /* NearMeFeature+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NearMeFeature+Action.swift"; sourceTree = "<group>"; };
 		E5977EEE294EA6CC001BD2EC /* Strings.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.generated.swift; sourceTree = "<group>"; };
+		E5977EF0294F85D2001BD2EC /* AppRootFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootFeature.swift; sourceTree = "<group>"; };
+		E5977EF2294F85E0001BD2EC /* NearMeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearMeFeature.swift; sourceTree = "<group>"; };
+		E5977EF4294F8678001BD2EC /* AppRootFeature+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppRootFeature+State.swift"; sourceTree = "<group>"; };
+		E5977EF6294F8682001BD2EC /* AppRootFeature+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppRootFeature+Action.swift"; sourceTree = "<group>"; };
+		E5977EFA294F8820001BD2EC /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		E5977EFD294F884F001BD2EC /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		E5977EFF294F8874001BD2EC /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		E5977F01294F893B001BD2EC /* EmptyContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +181,7 @@
 		E5977E7B294E7DF9001BD2EC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E5977EF8294F87DF001BD2EC /* UI */,
 				E5977E7C294E7E01001BD2EC /* Cores */,
 				E5977E89294E7E9F001BD2EC /* Features */,
 			);
@@ -248,6 +265,9 @@
 		E5977E8A294E7EB6001BD2EC /* AppRoot */ = {
 			isa = PBXGroup;
 			children = (
+				E5977EF0294F85D2001BD2EC /* AppRootFeature.swift */,
+				E5977EF6294F8682001BD2EC /* AppRootFeature+Action.swift */,
+				E5977EF4294F8678001BD2EC /* AppRootFeature+State.swift */,
 				E5977E8B294E7ECE001BD2EC /* AppRootScene.swift */,
 			);
 			path = AppRoot;
@@ -273,9 +293,10 @@
 		E5977E8F294E7F73001BD2EC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				E5977E90294E7F84001BD2EC /* NearMeScene.swift */,
-				E5977EE5294E9F73001BD2EC /* NearMeFeature+State.swift */,
+				E5977EF2294F85E0001BD2EC /* NearMeFeature.swift */,
 				E5977EE7294E9F85001BD2EC /* NearMeFeature+Action.swift */,
+				E5977EE5294E9F73001BD2EC /* NearMeFeature+State.swift */,
+				E5977E90294E7F84001BD2EC /* NearMeScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -477,6 +498,33 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E5977EF8294F87DF001BD2EC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E5977EFC294F8835001BD2EC /* DesignSystem */,
+				E5977EF9294F87E6001BD2EC /* Components */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E5977EF9294F87E6001BD2EC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E5977EFA294F8820001BD2EC /* InformationView.swift */,
+				E5977EFF294F8874001BD2EC /* ErrorView.swift */,
+				E5977F01294F893B001BD2EC /* EmptyContentView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E5977EFC294F8835001BD2EC /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				E5977EFD294F884F001BD2EC /* Metrics.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -598,26 +646,34 @@
 				E5977EEF294EA6CC001BD2EC /* Strings.generated.swift in Sources */,
 				E5977EA6294E80BE001BD2EC /* URLRequestBuilder.swift in Sources */,
 				E5977E94294E7FAD001BD2EC /* VenueCardView.swift in Sources */,
+				E5977EF7294F8682001BD2EC /* AppRootFeature+Action.swift in Sources */,
 				E5977EB9294E8699001BD2EC /* PlacesRequest+Search.swift in Sources */,
 				E5977E86294E7E62001BD2EC /* LocationManagerLive.swift in Sources */,
 				E5977E91294E7F84001BD2EC /* NearMeScene.swift in Sources */,
+				E5977F00294F8874001BD2EC /* ErrorView.swift in Sources */,
 				E5977E88294E7E79001BD2EC /* LocationManagerDelegate.swift in Sources */,
 				E5977EA4294E8094001BD2EC /* HTTPRequestDispatcherInterface.swift in Sources */,
 				E5977EAC294E8129001BD2EC /* NetworkStatusManager.swift in Sources */,
 				E5977EC4294E884E001BD2EC /* SearchPlacesRequest.swift in Sources */,
 				E5977EE6294E9F73001BD2EC /* NearMeFeature+State.swift in Sources */,
+				E5977F02294F893B001BD2EC /* EmptyContentView.swift in Sources */,
 				E5977EBB294E8766001BD2EC /* PlacesService.swift in Sources */,
 				E5977EA8294E8100001BD2EC /* HTTPRequestDispatcher.swift in Sources */,
 				E5977E9D294E803A001BD2EC /* HTTPRequestError.swift in Sources */,
 				E5977E96294E7FBC001BD2EC /* VenueCardModel.swift in Sources */,
+				E5977EFB294F8820001BD2EC /* InformationView.swift in Sources */,
+				E5977EF3294F85E0001BD2EC /* NearMeFeature.swift in Sources */,
 				E5977E84294E7E49001BD2EC /* LocationManagerInterface.swift in Sources */,
 				E5977EC1294E87CA001BD2EC /* PlacesServiceInterface.swift in Sources */,
 				E5977EAE294E8135001BD2EC /* NWPathMonitorAbstraction.swift in Sources */,
+				E5977EF1294F85D2001BD2EC /* AppRootFeature.swift in Sources */,
 				E5977EE8294E9F85001BD2EC /* NearMeFeature+Action.swift in Sources */,
 				E5977EDE294E9227001BD2EC /* SearchPlacesResponse.swift in Sources */,
 				E5977EB6294E8381001BD2EC /* PlacesRequest.swift in Sources */,
 				E5977EA0294E8052001BD2EC /* HTTPResponseData.swift in Sources */,
 				E5977E52294E7BD8001BD2EC /* VenuesApp.swift in Sources */,
+				E5977EF5294F8678001BD2EC /* AppRootFeature+State.swift in Sources */,
+				E5977EFE294F884F001BD2EC /* Metrics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,11 +823,11 @@
 				DEVELOPMENT_TEAM = YKYJK8YBGT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses location to find the nearest Foursquare venues.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -779,9 +835,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bocato.Application;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -796,11 +855,11 @@
 				DEVELOPMENT_TEAM = YKYJK8YBGT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses location to find the nearest Foursquare venues.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -808,9 +867,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bocato.Application;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

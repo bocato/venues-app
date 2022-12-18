@@ -1,2 +1,20 @@
-// MARK: - NearMe Scene
+/*
+ Would be way better to have this separated, on it's own modules and such...
+ But that won't happen for now 😅
+ */
+
+// MARK: - Scenes
+// NearMe Scene
+"nearMe.tabItemTitle" = "Near Me";
 "nearMe.navigationTitle" = "Near Me";
+"nearMe.infoView.noLocation.text" = "To find the venues nearby, we need location permissions.";
+"nearMe.infoView.noLocation.buttonTitle" = "Request location permission";
+
+// MARK: - UI Components
+// Error View
+"errorView.title" = "Ops!";
+"errorView.subtitle" = "Something is wrong, try again later.";
+"errorView.button.text" = "Retry";
+
+// Empty View
+"emptyContentView.button.text" = "Refresh";

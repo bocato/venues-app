@@ -4,7 +4,12 @@ import SwiftUI
 struct VenuesApp: App {
     var body: some Scene {
         WindowGroup {
-            AppRootScene()
+            AppRootScene(
+                store: .init(
+                    initialState: .init(),
+                    reducer: AppRootFeature()
+                )
+            )
         }
     }
 }

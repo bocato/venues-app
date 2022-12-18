@@ -1,6 +1,6 @@
 import Foundation
 
-public struct SearchPlacesRequest {
+public struct SearchPlacesRequest: Equatable {
     // The latitude/longitude around which to retrieve place information. This must be specified as latitude,longitude (e.g., ll=41.8781,-87.6298).
     public let latitude: Double
     public let longitude: Double

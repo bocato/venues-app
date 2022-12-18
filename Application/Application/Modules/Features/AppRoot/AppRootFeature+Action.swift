@@ -4,27 +4,26 @@ import Dependencies
 import SwiftUI
 import TCABoundaries
 
-extension NearMeFeature {
+extension AppRootFeature {
     // MARK: - Actions
     
     enum Action: TCAFeatureAction, Equatable {
         enum ViewAction: Equatable {
             case onAppear
-            case requestLocationPermissionsButtonTapped
+            case selectTab(State.Tab)
         }
         
         enum InternalAction: Equatable {
-            case observeLocationUpdates
-            case handleLocationManagerEvent(LocationManager.DelegateEvent)
-            case loadVenues(SearchPlacesRequest)
+            case requestLocationPermissions
+            // Child Flows
+            case nearMeTab(NearMeFeature.Action)
         }
         
-        enum DelegateAction: Equatable {
-            case needsLocationPermission
-        }
+        enum DelegateAction: Equatable {}
         
         case view(ViewAction)
         case _internal(InternalAction)
         case delegate(DelegateAction)
+        
     }
 }
