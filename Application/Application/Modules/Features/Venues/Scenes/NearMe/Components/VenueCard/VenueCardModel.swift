@@ -6,19 +6,21 @@ struct VenueCardModel: Equatable, Identifiable, Hashable {
     let name: String
     let kind: String?
     let locationInfo: String
-    let score: Double
+    let rating: Double?
     let description: String?
 }
 
 #if DEBUG
 extension VenueCard.Model {
+    static let mockImageURL = "https://fastly.4sqi.net/img/user/176x176/145930472-SUFRN4KCNVGTIZRZ.jpg"
+    
     static func fixture(
         id: String = "id123",
-        imageURL: String = "https://fastly.4sqi.net/img/user/176x176/145930472-SUFRN4KCNVGTIZRZ.jpg",
+        imageURL: String = mockImageURL,
         name: String = "1. Crossfit 123",
         kind: String? = nil,
         locationInfo: String = "250m IJBurg West",
-        score: Double = 8.5,
+        rating: Double? = nil,
         description: String? = nil
     ) -> Self {
         .init(
@@ -27,7 +29,7 @@ extension VenueCard.Model {
             name: name,
             kind: kind,
             locationInfo: locationInfo,
-            score: score,
+            rating: rating,
             description: description
         )
     }
@@ -37,6 +39,16 @@ extension VenueCard.Model {
     )
     
     static let mockWithDescription: Self = .fixture(
+        description: "User comment about the venue."
+    )
+    
+    static let mockWithRating: Self = .fixture(
+        rating: 9.5
+    )
+    
+    static let mockWithAppProperties: Self = .fixture(
+        kind: "Gym/Fitness",
+        rating: 9.5,
         description: "User comment about the venue."
     )
 }

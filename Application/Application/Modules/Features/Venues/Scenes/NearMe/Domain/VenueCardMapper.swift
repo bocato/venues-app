@@ -9,7 +9,8 @@ extension VenueCardMapper {
     private static func map(from entity: FoursquarePlace) -> VenueCardModel {
         var imageURL: String = ""
         if let firstPhoto = entity.photos.first {
-            imageURL = firstPhoto.prefix + String(firstPhoto.suffix.dropFirst())
+            let resolution = "176x176" // force smaller, but could use (width x height)
+            imageURL = firstPhoto.prefix + resolution + firstPhoto.suffix
         }
         
         let kind = entity.categories.compactMap { $0.name }.first ?? ""
@@ -25,7 +26,7 @@ extension VenueCardMapper {
             name: entity.name,
             kind: kind,
             locationInfo: locationInfo,
-            score: entity.rating,
+            rating: entity.rating,
             description: entity.description
         )
     }

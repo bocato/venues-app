@@ -60,6 +60,8 @@
 		E5977F11295061E5001BD2EC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5977F10295061E5001BD2EC /* Launch Screen.storyboard */; };
 		E5977F1529506991001BD2EC /* SwiftUINavigation in Frameworks */ = {isa = PBXBuildFile; productRef = E5977F1429506991001BD2EC /* SwiftUINavigation */; };
 		E5977F1729506991001BD2EC /* _SwiftUINavigationState in Frameworks */ = {isa = PBXBuildFile; productRef = E5977F1629506991001BD2EC /* _SwiftUINavigationState */; };
+		E5977F1A2950B7FF001BD2EC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F192950B7FF001BD2EC /* ImageLoader.swift */; };
+		E5977F1C2950B836001BD2EC /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F1B2950B836001BD2EC /* RemoteImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,8 @@
 		E5977F0E294FCE2B001BD2EC /* RadiusSelectionFeature+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadiusSelectionFeature+Action.swift"; sourceTree = "<group>"; };
 		E5977F10295061E5001BD2EC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E5977F122950647F001BD2EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E5977F192950B7FF001BD2EC /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		E5977F1B2950B836001BD2EC /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -526,6 +530,7 @@
 		E5977EF9294F87E6001BD2EC /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E5977F182950B7EE001BD2EC /* RemoteImage */,
 				E5977EFA294F8820001BD2EC /* InformationView.swift */,
 				E5977EFF294F8874001BD2EC /* ErrorView.swift */,
 				E5977F01294F893B001BD2EC /* EmptyContentView.swift */,
@@ -571,6 +576,15 @@
 				E5977F0E294FCE2B001BD2EC /* RadiusSelectionFeature+Action.swift */,
 			);
 			path = RadiusSelector;
+			sourceTree = "<group>";
+		};
+		E5977F182950B7EE001BD2EC /* RemoteImage */ = {
+			isa = PBXGroup;
+			children = (
+				E5977F192950B7FF001BD2EC /* ImageLoader.swift */,
+				E5977F1B2950B836001BD2EC /* RemoteImage.swift */,
+			);
+			path = RemoteImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -714,10 +728,12 @@
 				E5977EA8294E8100001BD2EC /* HTTPRequestDispatcher.swift in Sources */,
 				E5977E9D294E803A001BD2EC /* HTTPRequestError.swift in Sources */,
 				E5977E96294E7FBC001BD2EC /* VenueCardModel.swift in Sources */,
+				E5977F1A2950B7FF001BD2EC /* ImageLoader.swift in Sources */,
 				E5977EFB294F8820001BD2EC /* InformationView.swift in Sources */,
 				E5977EF3294F85E0001BD2EC /* NearMeFeature.swift in Sources */,
 				E5977F05294FC697001BD2EC /* VenueCardMapper.swift in Sources */,
 				E5977F0B294FCDF6001BD2EC /* RadiusSelectionFeature.swift in Sources */,
+				E5977F1C2950B836001BD2EC /* RemoteImage.swift in Sources */,
 				E5977E84294E7E49001BD2EC /* LocationManagerInterface.swift in Sources */,
 				E5977EC1294E87CA001BD2EC /* PlacesServiceInterface.swift in Sources */,
 				E5977EAE294E8135001BD2EC /* NWPathMonitorAbstraction.swift in Sources */,

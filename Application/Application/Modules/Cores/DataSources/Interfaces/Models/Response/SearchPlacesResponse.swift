@@ -7,7 +7,7 @@ public struct FoursquarePlace: Decodable, Equatable, Sendable { // Ideally I cou
     public let link: String
     public let location: Location
     public let name: String
-    public let rating: Double
+    public let rating: Double?
     public let photos: [Photo]
     public let description: String?
     
@@ -44,5 +44,7 @@ public extension FoursquarePlace {
         public let id: String
         public let prefix: String
         public let suffix: String
+        public let width: Int
+        public let height: Int
     }
 }

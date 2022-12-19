@@ -4,6 +4,10 @@ struct VenueCard: View {
     typealias Model = VenueCardModel
     let model: Model
     
+    init(model: Model) {
+        self.model = model
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {
@@ -18,18 +22,19 @@ struct VenueCard: View {
     
     @ViewBuilder
     private var imageView: some View {
-        AsyncImage(url: .init(string: model.imageURL)) { phase in
-            switch phase {
-            case .empty, .failure:
-                Image(systemName: "photo")
-                
-            case let .success(image):
-                image.resizable()
-                
-            @unknown default:
-                fatalError()
-            }
-        }
+        RemoteImage(url: .init(string: model.imageURL))
+//        AsyncImage(url: .init(string: model.imageURL)) { phase in
+//            switch phase {
+//            case .empty, .failure:
+//                Image(systemName: "photo")
+//
+//            case let .success(image):
+//                image.resizable()
+//
+//            @unknown default:
+//                fatalError()
+//            }
+//        }
         .frame(width: 50, height: 50)
         .aspectRatio(contentMode: .fit)
         .cornerRadius(.pi)
@@ -60,12 +65,17 @@ struct VenueCard: View {
             RoundedRectangle(cornerRadius: 6)
                 .frame(width: 32, height: 32)
                 .foregroundColor(.green)
-                .overlay {
-                    Text(String(format: "%.1f", model.score))
-                        .font(.callout)
-                        .bold()
-                        .foregroundColor(.white)
-                }
+                .overlay(ratingView)
+        }
+    }
+    
+    @ViewBuilder
+    private var ratingView: some View {
+        if let rating = model.rating {
+            Text(String(format: "%.1f", rating))
+                .font(.callout)
+                .bold()
+                .foregroundColor(.white)
         }
     }
     

@@ -105,7 +105,7 @@ struct NearMeFeature: ReducerProtocol {
             case .didChangeAuthorization:
                 return .init(value: ._internal(.loadVenuesUsingCurrentLocation))
             case .didFailWithError:
-                state.viewStage = .error // TODO: add specific messages for failure
+                state.viewStage = .error
                 return .none
             case let .didUpdateLocations(locations):
                 let needsPermissionRequest = locationManager.authorizationStatus().needsPermissionRequest
@@ -142,7 +142,7 @@ struct NearMeFeature: ReducerProtocol {
             return .init(value: ._internal(.loadVenues(request)))
             
         case let .loadVenues(request):
-            return .task { [placesService] in
+            return .task { @MainActor [placesService] in
                 let result: TaskResult<[FoursquarePlace]>
                 do {
                     let values = try await placesService.searchPlaces(request)
@@ -152,6 +152,8 @@ struct NearMeFeature: ReducerProtocol {
                 }
                 return ._internal(.searchPlacesResult(result))
             }
+            .receive(on: mainQueue)
+            .eraseToEffect()
             
         case let .searchPlacesResult(.success(venues)):
             let mapCards = venueCardMapper.map
