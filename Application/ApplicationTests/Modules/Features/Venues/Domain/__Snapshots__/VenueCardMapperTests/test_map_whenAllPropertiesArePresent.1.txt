@@ -1,0 +1,11 @@
+▿ VenueCardModel
+  ▿ description: Optional<String>
+    - some: "It\'s a picture place!"
+  - id: "557f12cf498e2f025de8c7d0"
+  - imageURL: "https://fastly.4sqi.net/img/general/176x176/585636_aIdMlY9-tnXaVSSiwhM1qd1Om7iqj1Ln4Z7meUc4f98.jpg"
+  ▿ kind: Optional<String>
+    - some: "Cinema"
+  - locationInfo: "79m | Greater London"
+  - name: "Picturehouse Central"
+  ▿ rating: Optional<Double>
+    - some: 9.4

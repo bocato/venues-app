@@ -62,6 +62,9 @@
 		E5977F1729506991001BD2EC /* _SwiftUINavigationState in Frameworks */ = {isa = PBXBuildFile; productRef = E5977F1629506991001BD2EC /* _SwiftUINavigationState */; };
 		E5977F1A2950B7FF001BD2EC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F192950B7FF001BD2EC /* ImageLoader.swift */; };
 		E5977F1C2950B836001BD2EC /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F1B2950B836001BD2EC /* RemoteImage.swift */; };
+		E5977F212950BBE8001BD2EC /* VenueCardMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F202950BBE8001BD2EC /* VenueCardMapperTests.swift */; };
+		E5977F232950C3CB001BD2EC /* VenueCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F222950C3CB001BD2EC /* VenueCardTests.swift */; };
+		E5977F322950CF76001BD2EC /* RemoteImage+TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F312950CF76001BD2EC /* RemoteImage+TestSupport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +130,9 @@
 		E5977F122950647F001BD2EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E5977F192950B7FF001BD2EC /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E5977F1B2950B836001BD2EC /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		E5977F202950BBE8001BD2EC /* VenueCardMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCardMapperTests.swift; sourceTree = "<group>"; };
+		E5977F222950C3CB001BD2EC /* VenueCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCardTests.swift; sourceTree = "<group>"; };
+		E5977F312950CF76001BD2EC /* RemoteImage+TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteImage+TestSupport.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,12 +310,12 @@
 			path = Venues;
 			sourceTree = "<group>";
 		};
-		E5977E8E294E7F68001BD2EC /* Components */ = {
+		E5977E8E294E7F68001BD2EC /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
 				E5977E92294E7F9C001BD2EC /* VenueCard */,
 			);
-			path = Components;
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		E5977E8F294E7F73001BD2EC /* Scenes */ = {
@@ -438,6 +444,7 @@
 		E5977ECA294E8B64001BD2EC /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E5977F1D2950BBAD001BD2EC /* Venues */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -557,7 +564,7 @@
 		E5977F06294FCDB3001BD2EC /* NearMe */ = {
 			isa = PBXGroup;
 			children = (
-				E5977E8E294E7F68001BD2EC /* Components */,
+				E5977E8E294E7F68001BD2EC /* UIComponents */,
 				E5977F03294FC68A001BD2EC /* Domain */,
 				E5977EF2294F85E0001BD2EC /* NearMeFeature.swift */,
 				E5977EE7294E9F85001BD2EC /* NearMeFeature+Action.swift */,
@@ -583,8 +590,34 @@
 			children = (
 				E5977F192950B7FF001BD2EC /* ImageLoader.swift */,
 				E5977F1B2950B836001BD2EC /* RemoteImage.swift */,
+				E5977F312950CF76001BD2EC /* RemoteImage+TestSupport.swift */,
 			);
 			path = RemoteImage;
+			sourceTree = "<group>";
+		};
+		E5977F1D2950BBAD001BD2EC /* Venues */ = {
+			isa = PBXGroup;
+			children = (
+				E5977F1E2950BBBF001BD2EC /* UIComponents */,
+				E5977F1F2950BBC6001BD2EC /* Domain */,
+			);
+			path = Venues;
+			sourceTree = "<group>";
+		};
+		E5977F1E2950BBBF001BD2EC /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				E5977F222950C3CB001BD2EC /* VenueCardTests.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		E5977F1F2950BBC6001BD2EC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E5977F202950BBE8001BD2EC /* VenueCardMapperTests.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -737,6 +770,7 @@
 				E5977E84294E7E49001BD2EC /* LocationManagerInterface.swift in Sources */,
 				E5977EC1294E87CA001BD2EC /* PlacesServiceInterface.swift in Sources */,
 				E5977EAE294E8135001BD2EC /* NWPathMonitorAbstraction.swift in Sources */,
+				E5977F322950CF76001BD2EC /* RemoteImage+TestSupport.swift in Sources */,
 				E5977EF1294F85D2001BD2EC /* AppRootFeature.swift in Sources */,
 				E5977EE8294E9F85001BD2EC /* NearMeFeature+Action.swift in Sources */,
 				E5977EDE294E9227001BD2EC /* SearchPlacesResponse.swift in Sources */,
@@ -756,6 +790,8 @@
 			files = (
 				E5977E63294E7BD9001BD2EC /* ApplicationTests.swift in Sources */,
 				E5977ED2294E8BF8001BD2EC /* NetworkStatusManagerTests.swift in Sources */,
+				E5977F212950BBE8001BD2EC /* VenueCardMapperTests.swift in Sources */,
+				E5977F232950C3CB001BD2EC /* VenueCardTests.swift in Sources */,
 				E5977ECE294E8BCE001BD2EC /* URLRequestBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

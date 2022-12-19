@@ -22,19 +22,9 @@ struct VenueCard: View {
     
     @ViewBuilder
     private var imageView: some View {
-        RemoteImage(url: .init(string: model.imageURL))
-//        AsyncImage(url: .init(string: model.imageURL)) { phase in
-//            switch phase {
-//            case .empty, .failure:
-//                Image(systemName: "photo")
-//
-//            case let .success(image):
-//                image.resizable()
-//
-//            @unknown default:
-//                fatalError()
-//            }
-//        }
+        RemoteImage(
+            url: .init(string: model.imageURL)
+        )
         .frame(width: 50, height: 50)
         .aspectRatio(contentMode: .fit)
         .cornerRadius(.pi)
@@ -61,21 +51,18 @@ struct VenueCard: View {
     
     @ViewBuilder
     private var scoreTagView: some View {
-        ZStack(alignment: .topTrailing) {
-            RoundedRectangle(cornerRadius: 6)
-                .frame(width: 32, height: 32)
-                .foregroundColor(.green)
-                .overlay(ratingView)
-        }
-    }
-    
-    @ViewBuilder
-    private var ratingView: some View {
         if let rating = model.rating {
-            Text(String(format: "%.1f", rating))
-                .font(.callout)
-                .bold()
-                .foregroundColor(.white)
+            ZStack(alignment: .topTrailing) {
+                RoundedRectangle(cornerRadius: 6)
+                    .frame(width: 32, height: 32)
+                    .foregroundColor(.green)
+                    .overlay(
+                        Text(String(format: "%.1f", rating))
+                            .font(.callout)
+                            .bold()
+                            .foregroundColor(.white)
+                    )
+            }
         }
     }
     
@@ -93,8 +80,11 @@ struct VenueCard: View {
 struct VenueCard_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            VenueCard(model: .fixture())
+            VenueCard(model: .mockWithAllFields)
+            VenueCard(model: .mockWithRating)
             VenueCard(model: .mockWithDescription)
+            VenueCard(model: .mockWithKind)
+            VenueCard(model: .mockWithNoOptionalFields)
         }
     }
 }

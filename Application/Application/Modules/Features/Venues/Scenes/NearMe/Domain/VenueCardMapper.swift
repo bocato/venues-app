@@ -9,11 +9,10 @@ extension VenueCardMapper {
     private static func map(from entity: FoursquarePlace) -> VenueCardModel {
         var imageURL: String = ""
         if let firstPhoto = entity.photos.first {
-            let resolution = "176x176" // force smaller, but could use (width x height)
-            imageURL = firstPhoto.prefix + resolution + firstPhoto.suffix
+            imageURL = firstPhoto.defaultResolutionURL()
         }
         
-        let kind = entity.categories.compactMap { $0.name }.first ?? ""
+        let kind = entity.categories.compactMap { $0.name }.first
         
         var locationInfo = "\(entity.distance)m"
         if let neighborhood = entity.location.neighborhood?.first {
@@ -29,6 +28,15 @@ extension VenueCardMapper {
             rating: entity.rating,
             description: entity.description
         )
+    }
+}
+
+extension FoursquarePlace.Photo {
+    static let defaultResolution = "176x176"
+    
+    func defaultResolutionURL() -> String {
+        let resolution = FoursquarePlace.Photo.defaultResolution // force smaller, but could use (width x height)
+        return `prefix` + resolution + suffix
     }
 }
 

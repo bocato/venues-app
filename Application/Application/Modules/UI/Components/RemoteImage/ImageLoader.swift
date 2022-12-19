@@ -2,33 +2,33 @@ import Combine
 import Foundation
 import SwiftUI
 
-public final class ImageLoader: ObservableObject {
-    // MARK: - Dependencies
+// MARK: - Inner Types
 
+public enum ImageLoadingState: Equatable {
+    case empty
+    case loading
+    case loaded(Data)
+}
+
+final class ImageLoader: ObservableObject {
+    
+    // MARK: - Dependencies
     private let session: URLSession
     private let cache: URLCache
     private let runLoop: RunLoop
 
-    // MARK: - Inner Types
-
-    public enum ImageLoadingState: Equatable {
-        case empty
-        case loading
-        case loaded(Data)
-    }
-
     // MARK: - Properties
-
-    @Published private(set) var state: ImageLoadingState
+    typealias State = ImageLoadingState
+    @Published private(set) var state: State
     private var cancelBag: Set<AnyCancellable> = .init()
 
     // MARK: - Initialization
-
-    public init(
+    
+    init(
         session: URLSession = .shared,
         cache: URLCache = .shared,
         runLoop: RunLoop = .main,
-        initialState: ImageLoadingState = .empty
+        initialState: State = .empty
     ) {
         self.session = session
         self.cache = cache
@@ -61,6 +61,12 @@ public final class ImageLoader: ObservableObject {
         cancelBag.forEach { $0.cancel() }
         cancelBag.removeAll()
     }
+    
+    #if DEBUG
+    func setState(_ state: State) {
+        self.state = state
+    }
+    #endif
 
     // MARK: - Private Functions
 

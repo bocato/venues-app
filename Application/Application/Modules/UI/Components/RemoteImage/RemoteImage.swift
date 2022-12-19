@@ -5,6 +5,9 @@ import SwiftUI
 public struct RemoteImage: View {
     // MARK: - Dependencies
 
+    #if DEBUG
+    @Environment(\.imageLoaderStateStub) var imageLoaderStateStub
+    #endif
     @ObservedObject private var imageLoader: ImageLoader
 
     // MARK: - Properties
@@ -25,7 +28,6 @@ public struct RemoteImage: View {
         self.url = url
         self.placeholder = placeholder
         self.cancelOnDisapear = cancelOnDisapear
-        imageLoader.loadData(for: url)
     }
     
     public init<Placeholder: View>(
@@ -39,6 +41,13 @@ public struct RemoteImage: View {
             placeholder: .init(erasing: placeholderView()),
             cancelOnDisapear: cancelOnDisapear
         )
+        commonInit()
+    }
+    
+    private mutating func commonInit() {
+        #if !DEBUG
+        imageLoader.loadData(for: url)
+        #endif
     }
 
     // MARK: - View
@@ -59,6 +68,13 @@ public struct RemoteImage: View {
                 }
             }
         }
+        #if DEBUG
+        .onAppear {
+            if let stubbedState = imageLoaderStateStub {
+                imageLoader.setState(stubbedState)
+            }
+        }
+        #endif
         .onDisappear {
             guard cancelOnDisapear else { return }
             imageLoader.cancel()
