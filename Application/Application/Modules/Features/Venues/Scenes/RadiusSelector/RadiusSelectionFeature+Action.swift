@@ -9,10 +9,11 @@ extension RadiusSelectionFeature {
     
     enum Action: TCAFeatureAction, Equatable {
         enum ViewAction: Equatable {
-            case applyButtonTapped
+            case textFieldValueChanged(String)
             case decrementRadiusTapped
-            case radiusValueChanged(Double)
+            case radiusSliderValueChanged(Double)
             case incrementRadiusTapped
+            case applyButtonTapped
         }
         
         enum InternalAction: Equatable {}

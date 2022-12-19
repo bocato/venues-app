@@ -295,7 +295,6 @@
 		E5977E8D294E7F59001BD2EC /* Venues */ = {
 			isa = PBXGroup;
 			children = (
-				E5977E8E294E7F68001BD2EC /* Components */,
 				E5977E8F294E7F73001BD2EC /* Scenes */,
 			);
 			path = Venues;
@@ -553,6 +552,7 @@
 		E5977F06294FCDB3001BD2EC /* NearMe */ = {
 			isa = PBXGroup;
 			children = (
+				E5977E8E294E7F68001BD2EC /* Components */,
 				E5977F03294FC68A001BD2EC /* Domain */,
 				E5977EF2294F85E0001BD2EC /* NearMeFeature.swift */,
 				E5977EE7294E9F85001BD2EC /* NearMeFeature+Action.swift */,

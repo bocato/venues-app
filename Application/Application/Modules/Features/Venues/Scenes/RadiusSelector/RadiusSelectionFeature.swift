@@ -34,16 +34,21 @@ struct RadiusSelectionFeature: ReducerProtocol {
         viewAction action: Action.ViewAction
     ) -> EffectTask<Action> {
         switch action {
-        case .decrementRadiusTapped:
-            state.radiusValue += 1
+        case let .textFieldValueChanged(text):
+            guard let doubleValue = Double(text) else { return .none }
+            state.radiusValue = doubleValue
             return .none
             
-        case let .radiusValueChanged(value):
+        case .decrementRadiusTapped:
+            state.radiusValue -= 1
+            return .none
+            
+        case let .radiusSliderValueChanged(value):
             state.radiusValue = value
             return .none
         
         case .incrementRadiusTapped:
-            state.radiusValue -= 1
+            state.radiusValue += 1
             return .none
             
         case .applyButtonTapped:

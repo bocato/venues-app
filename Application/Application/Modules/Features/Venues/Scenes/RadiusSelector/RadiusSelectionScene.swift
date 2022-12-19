@@ -14,7 +14,7 @@ struct RadiusSelectionScene: View {
                         .font(.headline)
                         .padding()
                     Spacer()
-                    inputContainer
+                    inputsContainer
                     Spacer()
                     Button(L10n.RadiusSelection.Button.apply) {
                         viewStore.send(.view(.applyButtonTapped))
@@ -26,28 +26,63 @@ struct RadiusSelectionScene: View {
         }
     }
     
-    private var inputContainer: some View {
+    private var inputsContainer: some View {
         WithViewStore(store) { viewStore in
-            HStack {
-                Button("-") {
-                    viewStore.send(.view(.decrementRadiusTapped))
-                }
-                .buttonStyle(.bordered)
-                .controlSize(.mini)
+            VStack(alignment: .center) {
+                textInputView
+                sliderContainer
+            }
+            .padding()
+        }
+    }
+    
+    private var textInputView: some View {
+        WithViewStore(store) { viewStore in
+            TextField(
+                "",
+                text: viewStore.binding(
+                    get: { "\(Int($0.radiusValue))" },
+                    send: { .view(.textFieldValueChanged($0)) }
+                )
+            )
+            .font(.title2)
+            .foregroundColor(.accentColor)
+            .multilineTextAlignment(.center)
+        }
+    }
+    
+    private var sliderContainer: some View {
+        WithViewStore(store) { viewStore in
+            HStack(alignment: .center) {
+                makeButton(
+                    title: "-",
+                    action: .decrementRadiusTapped
+                )
                 Slider(
                     value: viewStore.binding(
                         get: \.radiusValue,
-                        send: { .view(.radiusValueChanged($0)) }
+                        send: { .view(.radiusSliderValueChanged($0)) }
                     ),
                     in: viewStore.sliderConfig.range
                 )
-                Button("+") {
-                    viewStore.send(.view(.incrementRadiusTapped))
-                }
-                .buttonStyle(.bordered)
-                .controlSize(.mini)
+                makeButton(
+                    title: "+",
+                    action: .incrementRadiusTapped
+                )
             }
-            .padding()
+        }
+    }
+    
+    private func makeButton(
+        title: String,
+        action: RadiusSelectionFeature.Action.ViewAction
+    ) ->  some View {
+        WithViewStore(store.stateless) { viewStore in
+            Button(title) {
+                viewStore.send(.view(action))
+            }
+            .buttonStyle(.bordered)
+            .controlSize(.large)
         }
     }
 }

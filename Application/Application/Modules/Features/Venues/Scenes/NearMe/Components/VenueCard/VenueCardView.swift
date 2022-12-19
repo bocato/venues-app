@@ -73,7 +73,7 @@ struct VenueCard: View {
     private var descriptionView: some View {
         if let description = model.description {
             Text(description)
-                .font(.subheadline)
+                .font(.footnote)
                 .foregroundColor(.primary)
         }
     }

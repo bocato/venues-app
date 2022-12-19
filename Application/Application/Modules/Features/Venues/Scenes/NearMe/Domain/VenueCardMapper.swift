@@ -26,7 +26,7 @@ extension VenueCardMapper {
             kind: kind,
             locationInfo: locationInfo,
             score: entity.rating,
-            description: "bla bla bla"
+            description: entity.description
         )
     }
 }

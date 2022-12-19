@@ -6,7 +6,7 @@
 // MARK: - Scenes
 // NearMe Scene
 "nearMe.tabItemTitle" = "Near Me";
-"nearMe.navigationTitle" = "Near Me";
+"nearMe.navigationTitle" = "Venues Near Me";
 "nearMe.infoView.noLocation.text" = "To find the venues nearby, we need location permissions.";
 "nearMe.infoView.noLocation.buttonTitle" = "Request location permission";
 "nearMe.emptyView.title" = "Oops!";
