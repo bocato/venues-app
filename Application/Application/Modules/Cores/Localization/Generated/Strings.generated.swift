@@ -48,6 +48,18 @@ internal enum L10n {
     internal static var tabItemTitle: String {
       L10n.tr("Localizable", "nearMe.tabItemTitle")
     }
+    internal enum AcessoryView {
+      /// Options: 
+      internal static var callout: String {
+        L10n.tr("Localizable", "nearMe.acessoryView.callout")
+      }
+      internal enum Button {
+        /// Radius
+        internal static var radius: String {
+          L10n.tr("Localizable", "nearMe.acessoryView.button.radius")
+        }
+      }
+    }
     internal enum EmptyView {
       /// The list is empty, try again later.
       internal static var subtitle: String {
@@ -68,6 +80,25 @@ internal enum L10n {
         internal static var text: String {
           L10n.tr("Localizable", "nearMe.infoView.noLocation.text")
         }
+      }
+    }
+  }
+
+  internal enum RadiusSelection {
+    /// Select Radius
+    internal static var navigationTitle: String {
+      L10n.tr("Localizable", "radiusSelection.navigationTitle")
+    }
+    internal enum Button {
+      /// Apply
+      internal static var apply: String {
+        L10n.tr("Localizable", "radiusSelection.button.apply")
+      }
+    }
+    internal enum Header {
+      /// Define below the range to be applied to the nearest venues search.
+      internal static var text: String {
+        L10n.tr("Localizable", "radiusSelection.header.text")
       }
     }
   }

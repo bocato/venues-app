@@ -13,6 +13,8 @@ extension NearMeFeature {
             case requestLocationPermissionsButtonTapped
             case onErrorRetryButtonTapped
             case onPullToRefresh
+            case onRadiusButtonTapped
+            case dismissRadiusSheet
         }
         
         enum InternalAction: Equatable {
@@ -21,6 +23,8 @@ extension NearMeFeature {
             case loadVenuesUsingCurrentLocation
             case loadVenues(SearchPlacesRequest)
             case searchPlacesResult(TaskResult<[FoursquarePlace]>)
+            // Child Flows
+            case radiusSelection(RadiusSelectionFeature.Action)
         }
         
         enum DelegateAction: Equatable {

@@ -19,12 +19,10 @@ struct RadiusSelectionFeature: ReducerProtocol {
                 into: &state,
                 viewAction: action
             )
-        case let ._internal(action):
-            return reduce(
-                into: &state,
-                internalAction: action
-            )
-        case .delegate:
+        case ._internal: // No internal actions so far
+            return .none
+            
+        case .delegate: // Delegates are handled by the parent
             return .none
         }
     }
@@ -47,17 +45,10 @@ struct RadiusSelectionFeature: ReducerProtocol {
         case .incrementRadiusTapped:
             state.radiusValue -= 1
             return .none
-        }
-    }
-    
-    // MARK: - Internal Actions Handler
-    
-    private func reduce(
-        into state: inout State,
-        internalAction action: Action.InternalAction
-    ) -> EffectTask<Action> {
-        switch action {
-        
+            
+        case .applyButtonTapped:
+            let value = Int(state.radiusValue)
+            return .init(value: .delegate(.applyRadiusValue(value)))
         }
     }
 }

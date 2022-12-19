@@ -3,12 +3,13 @@ import CoreLocation
 import Dependencies
 import SwiftUI
 import TCABoundaries
+import SwiftUINavigation
 
 struct NearMeScene: View {
     let store: StoreOf<NearMeFeature>
     
     var body: some View {
-        WithViewStore(store.stateless) { viewStore in
+        WithViewStore(store) { viewStore in
             NavigationStack {
                 makeViewStages()
                     .navigationTitle(L10n.NearMe.navigationTitle)
@@ -17,6 +18,20 @@ struct NearMeScene: View {
                         acessoryView
                     }
             }
+            .sheet(
+                unwrapping: .constant(viewStore.route),
+                case: /NearMeFeature.State.Route.radiusScene,
+                onDismiss: { viewStore.send(.view(.dismissRadiusSheet)) },
+                content: { $binding in
+                    IfLetStore(
+                        store.scope(
+                            state: \.radiusSelectionState,
+                            action: /NearMeFeature.Action.InternalAction.radiusSelection
+                        ),
+                        then: RadiusSelectionScene.init(store:)
+                    )
+                }
+            )
         }
     }
     
@@ -24,24 +39,30 @@ struct NearMeScene: View {
     
     @ViewBuilder
     private var acessoryView: some View {
-        HStack {
-            Button(
-                action: {
-                    print("TODO: Call radius modal!")
-                },
-                label: {
-                    HStack {
-                        Text("Radius")
-                        Image(systemName: "map")
+        WithViewStore(store.stateless) { viewStore in
+            HStack {
+                Text(L10n.NearMe.AcessoryView.callout)
+                    .font(.callout)
+                    .bold()
+                    .foregroundColor(.secondary)
+                Button(
+                    action: {
+                        viewStore.send(.view(.onRadiusButtonTapped))
+                    },
+                    label: {
+                        HStack {
+                            Text(L10n.NearMe.AcessoryView.Button.radius)
+                            Image(systemName: "map")
+                        }
                     }
-                }
-            )
-            Spacer()
+                )
+                Spacer()
+            }
+            .padding()
+            .background(Color(uiColor: .systemGroupedBackground))
+            .buttonStyle(.bordered)
+            .controlSize(.mini)
         }
-        .padding()
-        .background(Color(uiColor: .systemGroupedBackground))
-        .buttonStyle(.bordered)
-        .controlSize(.mini)
     }
     
     // MARK: - View Stages

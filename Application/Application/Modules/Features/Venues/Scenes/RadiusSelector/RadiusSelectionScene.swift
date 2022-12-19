@@ -7,23 +7,21 @@ import TCABoundaries
 struct RadiusSelectionScene: View {
     let store: StoreOf<RadiusSelectionFeature>
     var body: some View {
-        WithViewStore(store) { viewStore in
+        WithViewStore(store.stateless) { viewStore in
             NavigationStack {
                 VStack {
-                    Text("Define below the range to be applied to the nearest venues search.")
+                    Text(L10n.RadiusSelection.Header.text)
                         .font(.headline)
                         .padding()
                     Spacer()
                     inputContainer
                     Spacer()
-                    Button(action: {
-                        // add code to apply the value in the text field here
-                    }) {
-                        Text("Apply")
+                    Button(L10n.RadiusSelection.Button.apply) {
+                        viewStore.send(.view(.applyButtonTapped))
                     }
                     .buttonStyle(.bordered)
                 }
-                .navigationTitle("Radius")
+                .navigationTitle(L10n.RadiusSelection.navigationTitle)
             }
         }
     }
@@ -36,13 +34,13 @@ struct RadiusSelectionScene: View {
                 }
                 .buttonStyle(.bordered)
                 .controlSize(.mini)
-//                Slider(
-//                    value: viewStore.binding(
-//                        get: \.radiusValue,
-//                        send: { .view(.radiusValueChanged($0)) }
-//                    ),
-//                    in: viewStore.sliderConfig.range
-//                )
+                Slider(
+                    value: viewStore.binding(
+                        get: \.radiusValue,
+                        send: { .view(.radiusValueChanged($0)) }
+                    ),
+                    in: viewStore.sliderConfig.range
+                )
                 Button("+") {
                     viewStore.send(.view(.incrementRadiusTapped))
                 }
@@ -59,7 +57,7 @@ struct RadiusSelectionScene_Previews: PreviewProvider {
     static var previews: some View {
         RadiusSelectionScene(
             store: .init(
-                initialState: .init(),
+                initialState: .init(radiusValue: 2_000),
                 reducer: RadiusSelectionFeature()
             )
         )

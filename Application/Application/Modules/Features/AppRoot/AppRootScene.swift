@@ -43,7 +43,7 @@ struct AppRootScene: View {
         Text("Unimplemented 😅")
             .tabItem {
                 Image(systemName: "list.bullet")
-                Text("List")
+                Text("List") // TODO: Localize!
             }
             .tag(AppRootFeature.State.Tab.list)
     }
@@ -52,7 +52,7 @@ struct AppRootScene: View {
         Text("Unimplemented 😅")
             .tabItem {
                 Image(systemName: "list.clipboard.fill")
-                Text("History")
+                Text("History") // TODO: Localize!
             }
             .tag(AppRootFeature.State.Tab.history)
     }
@@ -61,7 +61,7 @@ struct AppRootScene: View {
         Text("Unimplemented 😅")
             .tabItem {
                 Image(systemName: "person.crop.circle")
-                Text("Me")
+                Text("Me") // TODO: Localize!
             }
             .tag(AppRootFeature.State.Tab.me)
     }

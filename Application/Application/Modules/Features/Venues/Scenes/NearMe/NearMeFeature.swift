@@ -12,9 +12,18 @@ struct NearMeFeature: ReducerProtocol {
     @Dependency(\.venueCardMapper) var venueCardMapper
     @Dependency(\.mainQueue) var mainQueue
     
+    // MARK: - Reducer Composition
+    
+    var body: some ReducerProtocol<State, Action> {
+        Reduce(reduceNearMeFeature)
+            .ifLet(\.radiusSelectionState, action: /Action.InternalAction.radiusSelection) {
+                RadiusSelectionFeature()
+            }
+    }
+    
     // MARK: - Logic
     
-    func reduce(
+    func reduceNearMeFeature(
         into state: inout State,
         action: Action
     ) -> EffectTask<Action> {
@@ -29,7 +38,7 @@ struct NearMeFeature: ReducerProtocol {
                 into: &state,
                 internalAction: action
             )
-        case .delegate:
+        case .delegate: // Delegates are handled by the parent
             return .none
         }
     }
@@ -63,6 +72,17 @@ struct NearMeFeature: ReducerProtocol {
             
         case .onPullToRefresh:
             return .init(value: ._internal(.loadVenuesUsingCurrentLocation))
+            
+        case .onRadiusButtonTapped:
+            state.route = .radiusScene
+            let radiusValue = Double(state.searchRadius)
+            state.radiusSelectionState = .init(radiusValue: radiusValue)
+            return .none
+            
+        case .dismissRadiusSheet:
+            state.route = nil
+            state.radiusSelectionState = nil
+            return .none
         }
     }
     
@@ -142,6 +162,29 @@ struct NearMeFeature: ReducerProtocol {
         case .searchPlacesResult(.failure):
             state.viewStage = .error
             return .none
+        // Child Flows
+        case let .radiusSelection(action):
+            return reduceRadiusSelectionScene(
+                into: &state,
+                action: action
+            )
+        }
+    }
+    
+    // MARK: - Child Flows
+    
+    private func reduceRadiusSelectionScene(
+        into state: inout State,
+        action: RadiusSelectionFeature.Action
+    ) -> EffectTask<Action> {
+        guard case let .delegate(delegateAction) = action else { return .none } // we will only intercept delegate actions
+        switch delegateAction {
+        case let .applyRadiusValue(radius):
+            state.searchRadius = radius
+            return .concatenate(
+                .init(value: .view(.dismissRadiusSheet)),
+                .init(value: ._internal(.loadVenuesUsingCurrentLocation))
+            )
         }
     }
 }

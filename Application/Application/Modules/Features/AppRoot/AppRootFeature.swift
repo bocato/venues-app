@@ -35,7 +35,7 @@ struct AppRootFeature: ReducerProtocol {
                 into: &state,
                 internalAction: action
             )
-        case .delegate:
+        case .delegate: // Delegates are handled by the parent
             return .none
         }
     }
@@ -78,7 +78,7 @@ struct AppRootFeature: ReducerProtocol {
         }
     }
     
-    // MARK: - NearMe Tab Handler
+    // MARK: - Child Flows
     
     private func reduceNearMeTab(
         into state: inout State,

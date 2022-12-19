@@ -8,23 +8,21 @@ extension RadiusSelectionFeature {
     // MARK: - State
     struct State: Equatable {
         let sliderConfig: SliderConfig = .default
-        var radiusValue: Int = SliderConfig.default.defaultValue
+        var radiusValue: Double
     }
 }
 
 extension RadiusSelectionFeature.State {
     struct SliderConfig: Equatable {
-        let minValue: Int
-        let maxValue: Int
-        let defaultValue: Int
+        let minValue: Double
+        let maxValue: Double
         
         static let `default`: Self = .init(
             minValue: 0,
-            maxValue: 100_000,
-            defaultValue: 2_000
+            maxValue: 100_000
         )
         
-        var range: ClosedRange<Int> {
+        var range: ClosedRange<Double> {
             minValue...maxValue
         }
     }

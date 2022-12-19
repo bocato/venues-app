@@ -11,6 +11,13 @@
 "nearMe.infoView.noLocation.buttonTitle" = "Request location permission";
 "nearMe.emptyView.title" = "Oops!";
 "nearMe.emptyView.subtitle" = "The list is empty, try again later.";
+"nearMe.acessoryView.callout" = "Options: ";
+"nearMe.acessoryView.button.radius" = "Radius";
+
+// Radius Selection
+"radiusSelection.navigationTitle" = "Select Radius";
+"radiusSelection.header.text" = "Define below the range to be applied to the nearest venues search.";
+"radiusSelection.button.apply" = "Apply";
 
 // MARK: - UI Components
 // Error View

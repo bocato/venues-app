@@ -8,7 +8,10 @@ extension NearMeFeature {
     // MARK: - State
     struct State: Equatable {
         var viewStage: ViewStage = .loading
+        var route: Route?
         var searchRadius: Int = .defaultSearchRadius
+        // Child Flows
+        var radiusSelectionState: RadiusSelectionFeature.State?
     }
 }
 extension NearMeFeature.State {
@@ -18,6 +21,10 @@ extension NearMeFeature.State {
         case venuesLoaded([VenueCardModel])
         case empty
         case error // TODO: Add better error messages/types
+    }
+    
+    enum Route: Equatable {
+        case radiusScene
     }
 }
 
