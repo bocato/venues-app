@@ -4,37 +4,6 @@ import Dependencies
 import SwiftUI
 import TCABoundaries
 
-//struct ContentView: View {
-//    var body: some View {
-//      NavigationView {
-//        List {
-//          ForEach(0 ..< 30) { item in
-//            Text("Hello, world!")
-//          }
-//        }
-//        .navigationTitle("Accessory View")
-//        .safeAreaInset(edge: .top) {
-//          AccessoryView()
-//        }
-//      }
-//    }
-//}
-//
-//struct AccessoryView: View {
-//  var body: some View {
-//    HStack {
-//      Button("Button") { }
-//      Button("Button") { }
-//      Button("Button") { }
-//      Spacer()
-//    }
-//    .padding()
-//    .background(Color(uiColor: .systemGroupedBackground))
-//    .buttonStyle(.bordered)
-//    .controlSize(.mini)
-//  }
-//}
-
 struct NearMeScene: View {
     let store: StoreOf<NearMeFeature>
     
@@ -83,10 +52,16 @@ struct NearMeScene: View {
             switch viewStore.state {
             case .loading:
                 loadingView
-            case .noLocation:
-                noLocationView
+            case .noLocationPermission:
+                noLocationPermissionView
             case let .venuesLoaded(cards):
                 listView(cards)
+            case .empty:
+                EmptyContentView(
+                    title: L10n.NearMe.EmptyView.title,
+                    subtitle: L10n.NearMe.EmptyView.subtitle,
+                    onRefresh: { viewStore.send(.view(.onErrorRetryButtonTapped)) }
+                )
             case .error:
                 ErrorView(
                     onRetry: { viewStore.send(.view(.onErrorRetryButtonTapped)) }
@@ -103,7 +78,7 @@ struct NearMeScene: View {
         }
     }
     
-    private var noLocationView: some View {
+    private var noLocationPermissionView: some View {
         WithViewStore(store.stateless) { viewStore in
             InformationView(
                 data: .init(

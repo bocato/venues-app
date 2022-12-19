@@ -42,9 +42,9 @@ struct NearMeFeature: ReducerProtocol {
     ) -> EffectTask<Action> {
         switch action {
         case .onAppear:
-            let needsPermissionRequest = locationManager.authorizationStatus().needsPermissionRequest
-            guard !needsPermissionRequest else {
-                state.viewStage = .noLocation
+            let status = locationManager.authorizationStatus()
+            guard !status.needsPermissionRequest else {
+                state.viewStage = .noLocationPermission
                 return .concatenate(
                     .init(value: .delegate(.needsLocationPermission)),
                     .init(value: ._internal(.observeLocationUpdates))
@@ -82,8 +82,11 @@ struct NearMeFeature: ReducerProtocol {
             
         case let .handleLocationManagerEvent(event):
             switch event {
-            case .didChangeAuthorization, .didFailWithError:
-                return .none // TODO: add specific messages for failure or when permissions are still not enough
+            case .didChangeAuthorization:
+                return .init(value: ._internal(.loadVenuesUsingCurrentLocation))
+            case .didFailWithError:
+                state.viewStage = .error // TODO: add specific messages for failure
+                return .none
             case let .didUpdateLocations(locations):
                 let needsPermissionRequest = locationManager.authorizationStatus().needsPermissionRequest
                 guard
@@ -103,8 +106,13 @@ struct NearMeFeature: ReducerProtocol {
             guard
                 let coordinate = locationManager.lastLocation()?.coordinate
             else {
-                state.viewStage = .noLocation
-                return .none
+                state.viewStage = .loading
+                return .concatenate(
+                    .fireAndForget {
+                        locationManager.requestLocation()
+                    },
+                    .init(value: ._internal(.observeLocationUpdates))
+                )
             }
             let request: SearchPlacesRequest = .init(
                 latitude: coordinate.latitude,

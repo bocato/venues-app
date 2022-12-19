@@ -48,13 +48,23 @@ internal enum L10n {
     internal static var tabItemTitle: String {
       L10n.tr("Localizable", "nearMe.tabItemTitle")
     }
+    internal enum EmptyView {
+      /// The list is empty, try again later.
+      internal static var subtitle: String {
+        L10n.tr("Localizable", "nearMe.emptyView.subtitle")
+      }
+      /// Oops!
+      internal static var title: String {
+        L10n.tr("Localizable", "nearMe.emptyView.title")
+      }
+    }
     internal enum InfoView {
       internal enum NoLocation {
         /// Request location permission
         internal static var buttonTitle: String {
           L10n.tr("Localizable", "nearMe.infoView.noLocation.buttonTitle")
         }
-        /// To find the places nearby, we need location info.\nTap the button below to request permissions for that.
+        /// To find the venues nearby, we need location permissions.
         internal static var text: String {
           L10n.tr("Localizable", "nearMe.infoView.noLocation.text")
         }

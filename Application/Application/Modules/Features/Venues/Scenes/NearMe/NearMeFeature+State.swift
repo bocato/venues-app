@@ -14,9 +14,10 @@ extension NearMeFeature {
 extension NearMeFeature.State {
     enum ViewStage: Equatable {
         case loading
-        case noLocation
+        case noLocationPermission
         case venuesLoaded([VenueCardModel])
-        case error // TODO: Add Error Model
+        case empty
+        case error // TODO: Add better error messages/types
     }
 }
 

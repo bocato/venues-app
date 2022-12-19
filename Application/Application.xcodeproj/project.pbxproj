@@ -57,6 +57,7 @@
 		E5977F0B294FCDF6001BD2EC /* RadiusSelectionFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F0A294FCDF6001BD2EC /* RadiusSelectionFeature.swift */; };
 		E5977F0D294FCE1E001BD2EC /* RadiusSelectionFeature+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F0C294FCE1E001BD2EC /* RadiusSelectionFeature+State.swift */; };
 		E5977F0F294FCE2B001BD2EC /* RadiusSelectionFeature+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F0E294FCE2B001BD2EC /* RadiusSelectionFeature+Action.swift */; };
+		E5977F11295061E5001BD2EC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5977F10295061E5001BD2EC /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,8 @@
 		E5977F0A294FCDF6001BD2EC /* RadiusSelectionFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusSelectionFeature.swift; sourceTree = "<group>"; };
 		E5977F0C294FCE1E001BD2EC /* RadiusSelectionFeature+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadiusSelectionFeature+State.swift"; sourceTree = "<group>"; };
 		E5977F0E294FCE2B001BD2EC /* RadiusSelectionFeature+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadiusSelectionFeature+Action.swift"; sourceTree = "<group>"; };
+		E5977F10295061E5001BD2EC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E5977F122950647F001BD2EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,10 +166,12 @@
 		E5977E50294E7BD8001BD2EC /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				E5977F122950647F001BD2EC /* Info.plist */,
 				E5977E7B294E7DF9001BD2EC /* Modules */,
 				E5977E51294E7BD8001BD2EC /* VenuesApp.swift */,
 				E5977E55294E7BD9001BD2EC /* Assets.xcassets */,
 				E5977E57294E7BD9001BD2EC /* Preview Content */,
+				E5977F10295061E5001BD2EC /* Launch Screen.storyboard */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -266,8 +271,8 @@
 		E5977E89294E7E9F001BD2EC /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				E5977E8D294E7F59001BD2EC /* Venues */,
 				E5977E8A294E7EB6001BD2EC /* AppRoot */,
+				E5977E8D294E7F59001BD2EC /* Venues */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -661,6 +666,7 @@
 				E5977E59294E7BD9001BD2EC /* Preview Assets.xcassets in Resources */,
 				E5977ED5294E907B001BD2EC /* Localizable.strings in Resources */,
 				E5977E56294E7BD9001BD2EC /* Assets.xcassets in Resources */,
+				E5977F11295061E5001BD2EC /* Launch Screen.storyboard in Resources */,
 				E5977ED9294E90C3001BD2EC /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -867,10 +873,11 @@
 				DEVELOPMENT_TEAM = YKYJK8YBGT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Application/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses location to find the nearest Foursquare venues.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -899,10 +906,11 @@
 				DEVELOPMENT_TEAM = YKYJK8YBGT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Application/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses location to find the nearest Foursquare venues.";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
