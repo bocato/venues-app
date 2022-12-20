@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E557B58E29521F4800036BCE /* JSONSerialization+TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E557B58D29521F4800036BCE /* JSONSerialization+TestSupport.swift */; };
+		E557B59029521FC000036BCE /* URL+TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E557B58F29521FC000036BCE /* URL+TestSupport.swift */; };
+		E557B5922952240600036BCE /* HTTPRequestDispatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E557B5912952240600036BCE /* HTTPRequestDispatcherTests.swift */; };
 		E5977E52294E7BD8001BD2EC /* VenuesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977E51294E7BD8001BD2EC /* VenuesApp.swift */; };
 		E5977E56294E7BD9001BD2EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5977E55294E7BD9001BD2EC /* Assets.xcassets */; };
 		E5977E59294E7BD9001BD2EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5977E58294E7BD9001BD2EC /* Preview Assets.xcassets */; };
@@ -35,7 +38,7 @@
 		E5977EC1294E87CA001BD2EC /* PlacesServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EC0294E87CA001BD2EC /* PlacesServiceInterface.swift */; };
 		E5977EC4294E884E001BD2EC /* SearchPlacesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977EC3294E884E001BD2EC /* SearchPlacesRequest.swift */; };
 		E5977EC7294E8AF3001BD2EC /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = E5977EC6294E8AF3001BD2EC /* SnapshotTesting */; };
-		E5977ECE294E8BCE001BD2EC /* URLRequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977ECD294E8BCE001BD2EC /* URLRequestBuilderTests.swift */; };
+		E5977ECE294E8BCE001BD2EC /* DefaultURLRequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977ECD294E8BCE001BD2EC /* DefaultURLRequestBuilderTests.swift */; };
 		E5977ED2294E8BF8001BD2EC /* NetworkStatusManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977ED1294E8BF8001BD2EC /* NetworkStatusManagerTests.swift */; };
 		E5977ED5294E907B001BD2EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5977ED4294E907B001BD2EC /* Localizable.strings */; };
 		E5977ED9294E90C3001BD2EC /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = E5977ED8294E90C3001BD2EC /* swiftgen.yml */; };
@@ -65,6 +68,8 @@
 		E5977F212950BBE8001BD2EC /* VenueCardMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F202950BBE8001BD2EC /* VenueCardMapperTests.swift */; };
 		E5977F232950C3CB001BD2EC /* VenueCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F222950C3CB001BD2EC /* VenueCardTests.swift */; };
 		E5977F322950CF76001BD2EC /* RemoteImage+TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F312950CF76001BD2EC /* RemoteImage+TestSupport.swift */; };
+		E5977F342951BBE6001BD2EC /* NearMeFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F332951BBE6001BD2EC /* NearMeFeatureTests.swift */; };
+		E5977F362951F60E001BD2EC /* Publisher+TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5977F352951F60E001BD2EC /* Publisher+TestSupport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +83,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E557B58D29521F4800036BCE /* JSONSerialization+TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONSerialization+TestSupport.swift"; sourceTree = "<group>"; };
+		E557B58F29521FC000036BCE /* URL+TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+TestSupport.swift"; sourceTree = "<group>"; };
+		E557B5912952240600036BCE /* HTTPRequestDispatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestDispatcherTests.swift; sourceTree = "<group>"; };
 		E5977E4E294E7BD8001BD2EC /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5977E51294E7BD8001BD2EC /* VenuesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesApp.swift; sourceTree = "<group>"; };
 		E5977E55294E7BD9001BD2EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,7 +113,7 @@
 		E5977EBA294E8766001BD2EC /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
 		E5977EC0294E87CA001BD2EC /* PlacesServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesServiceInterface.swift; sourceTree = "<group>"; };
 		E5977EC3294E884E001BD2EC /* SearchPlacesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesRequest.swift; sourceTree = "<group>"; };
-		E5977ECD294E8BCE001BD2EC /* URLRequestBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilderTests.swift; sourceTree = "<group>"; };
+		E5977ECD294E8BCE001BD2EC /* DefaultURLRequestBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultURLRequestBuilderTests.swift; sourceTree = "<group>"; };
 		E5977ED1294E8BF8001BD2EC /* NetworkStatusManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusManagerTests.swift; sourceTree = "<group>"; };
 		E5977ED4294E907B001BD2EC /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E5977ED8294E90C3001BD2EC /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -133,6 +141,8 @@
 		E5977F202950BBE8001BD2EC /* VenueCardMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCardMapperTests.swift; sourceTree = "<group>"; };
 		E5977F222950C3CB001BD2EC /* VenueCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCardTests.swift; sourceTree = "<group>"; };
 		E5977F312950CF76001BD2EC /* RemoteImage+TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteImage+TestSupport.swift"; sourceTree = "<group>"; };
+		E5977F332951BBE6001BD2EC /* NearMeFeatureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearMeFeatureTests.swift; sourceTree = "<group>"; };
+		E5977F352951F60E001BD2EC /* Publisher+TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+TestSupport.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +169,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E557B58C29521F3500036BCE /* TestSupport */ = {
+			isa = PBXGroup;
+			children = (
+				E5977F352951F60E001BD2EC /* Publisher+TestSupport.swift */,
+				E557B58D29521F4800036BCE /* JSONSerialization+TestSupport.swift */,
+				E557B58F29521FC000036BCE /* URL+TestSupport.swift */,
+			);
+			path = TestSupport;
+			sourceTree = "<group>";
+		};
 		E5977E45294E7BD8001BD2EC = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +387,7 @@
 		E5977EAF294E8148001BD2EC /* MyFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				E557B58C29521F3500036BCE /* TestSupport */,
 				E5977EB0294E8161001BD2EC /* DispatchingQueues.swift */,
 			);
 			path = MyFoundation;
@@ -469,7 +490,8 @@
 		E5977ED0294E8BEA001BD2EC /* Dispatcher */ = {
 			isa = PBXGroup;
 			children = (
-				E5977ECD294E8BCE001BD2EC /* URLRequestBuilderTests.swift */,
+				E5977ECD294E8BCE001BD2EC /* DefaultURLRequestBuilderTests.swift */,
+				E557B5912952240600036BCE /* HTTPRequestDispatcherTests.swift */,
 			);
 			path = Dispatcher;
 			sourceTree = "<group>";
@@ -600,6 +622,7 @@
 			children = (
 				E5977F1E2950BBBF001BD2EC /* UIComponents */,
 				E5977F1F2950BBC6001BD2EC /* Domain */,
+				E5977F332951BBE6001BD2EC /* NearMeFeatureTests.swift */,
 			);
 			path = Venues;
 			sourceTree = "<group>";
@@ -749,6 +772,8 @@
 				E5977F09294FCDE4001BD2EC /* RadiusSelectionScene.swift in Sources */,
 				E5977EB9294E8699001BD2EC /* PlacesRequest+Search.swift in Sources */,
 				E5977E86294E7E62001BD2EC /* LocationManagerLive.swift in Sources */,
+				E557B58E29521F4800036BCE /* JSONSerialization+TestSupport.swift in Sources */,
+				E5977F362951F60E001BD2EC /* Publisher+TestSupport.swift in Sources */,
 				E5977E91294E7F84001BD2EC /* NearMeScene.swift in Sources */,
 				E5977F00294F8874001BD2EC /* ErrorView.swift in Sources */,
 				E5977E88294E7E79001BD2EC /* LocationManagerDelegate.swift in Sources */,
@@ -779,6 +804,7 @@
 				E5977EA0294E8052001BD2EC /* HTTPResponseData.swift in Sources */,
 				E5977E52294E7BD8001BD2EC /* VenuesApp.swift in Sources */,
 				E5977EF5294F8678001BD2EC /* AppRootFeature+State.swift in Sources */,
+				E557B59029521FC000036BCE /* URL+TestSupport.swift in Sources */,
 				E5977EFE294F884F001BD2EC /* Metrics.swift in Sources */,
 				E5977F0F294FCE2B001BD2EC /* RadiusSelectionFeature+Action.swift in Sources */,
 			);
@@ -788,11 +814,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5977F342951BBE6001BD2EC /* NearMeFeatureTests.swift in Sources */,
 				E5977E63294E7BD9001BD2EC /* ApplicationTests.swift in Sources */,
 				E5977ED2294E8BF8001BD2EC /* NetworkStatusManagerTests.swift in Sources */,
+				E557B5922952240600036BCE /* HTTPRequestDispatcherTests.swift in Sources */,
 				E5977F212950BBE8001BD2EC /* VenueCardMapperTests.swift in Sources */,
 				E5977F232950C3CB001BD2EC /* VenueCardTests.swift in Sources */,
-				E5977ECE294E8BCE001BD2EC /* URLRequestBuilderTests.swift in Sources */,
+				E5977ECE294E8BCE001BD2EC /* DefaultURLRequestBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

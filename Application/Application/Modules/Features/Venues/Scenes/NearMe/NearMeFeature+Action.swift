@@ -11,10 +11,11 @@ extension NearMeFeature {
         enum ViewAction: Equatable {
             case onAppear
             case requestLocationPermissionsButtonTapped
-            case onErrorRetryButtonTapped
+            case onRetryButtonTapped
             case onPullToRefresh
             case onRadiusButtonTapped
             case dismissRadiusSheet
+            case onDisappear
         }
         
         enum InternalAction: Equatable {

@@ -56,3 +56,11 @@ extension DependencyValues {
     }
 }
 
+// MARK: - Test Support
+#if DEBUG
+extension VenueCardMapper {
+    static let dummy: Self = .init(
+        map: { _ in .fixture() }
+    )
+}
+#endif

@@ -44,6 +44,8 @@ public extension FoursquarePlace {
     }
 }
 
+// MARK: - Test Support
+
 #if DEBUG
 extension FoursquarePlace {
     public static func fixture(
@@ -110,5 +112,13 @@ extension FoursquarePlace.Photo {
             height: height
         )
     }
+}
+
+extension Array where Element == FoursquarePlace {
+    static let threePlacesMock: Self = [
+        .fixture(name: "Place 1"),
+        .fixture(name: "Place 2"),
+        .fixture(name: "Place 3")
+    ]
 }
 #endif

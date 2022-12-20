@@ -17,14 +17,22 @@ extension NearMeFeature {
 extension NearMeFeature.State {
     enum ViewStage: Equatable {
         case loading
-        case noLocationPermission
         case venuesLoaded([VenueCardModel])
         case empty
-        case error // TODO: Add better error messages/types
+        case error(Failure)
     }
     
     enum Route: Equatable {
         case radiusScene
+    }
+}
+
+extension NearMeFeature.State.ViewStage {
+    enum Failure: Equatable {
+        case noLocationPermission
+        case noValidLocation
+        case locationManagerFailed
+        case serviceError
     }
 }
 

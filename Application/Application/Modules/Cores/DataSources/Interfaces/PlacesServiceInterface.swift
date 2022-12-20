@@ -22,3 +22,28 @@ extension DependencyValues {
         set { self[PlacesServiceKey.self] = newValue }
     }
 }
+
+// MARK: - Test Support
+#if DEBUG
+public final class PlacesServiceStub: PlacesServiceProtocol {
+    public init() {}
+    
+    public var searchPlacesResultToBeReturned: Result<[FoursquarePlace], Error> = .success([])
+    public func searchPlaces(_ request: SearchPlacesRequest) async throws -> [FoursquarePlace] {
+        switch searchPlacesResultToBeReturned {
+        case let .success(places):
+            return places
+        case let .failure(error):
+            throw error
+        }
+    }
+}
+
+public struct PlacesServiceDummy: PlacesServiceProtocol {
+    public init() {}
+    
+    public func searchPlaces(_ request: SearchPlacesRequest) async throws -> [FoursquarePlace] {
+        return []
+    }
+}
+#endif

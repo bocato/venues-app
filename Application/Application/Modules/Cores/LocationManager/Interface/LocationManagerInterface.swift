@@ -3,11 +3,12 @@ import CoreLocation
 import Combine
 
 public struct LocationManager {
-    public internal(set) var authorizationStatus: () -> CLAuthorizationStatus
-    public internal(set) var requestWhenInUseAuthorization: () -> Void
-    public internal(set) var requestLocation: () -> Void
-    public internal(set) var lastLocation: () -> CLLocation?
-    public internal(set) var delegate: AnyPublisher<DelegateEvent, Never>
+    public typealias LocationCoordinate = CLLocationCoordinate2D
+    public var authorizationStatus: () -> CLAuthorizationStatus
+    public var requestWhenInUseAuthorization: () -> Void
+    public var requestLocation: () -> Void
+    public var lastLocationCoordinate: () -> LocationCoordinate?
+    public var delegate: AnyPublisher<DelegateEvent, Never>
     
     public enum DelegateEvent: Equatable {
         case didChangeAuthorization(CLAuthorizationStatus)
@@ -41,6 +42,9 @@ import Dependencies
 
 extension LocationManager: DependencyKey {
     public static var liveValue: LocationManager = .live // TODO: Add secondary DI system to decouple interface/implementation
+    #if DEBUG
+    public static var testValue: LocationManager = .failing
+    #endif
 }
 
 extension DependencyValues {
@@ -50,3 +54,40 @@ extension DependencyValues {
     }
 }
 
+// MARK: - Test Support
+
+#if DEBUG
+import XCTestDynamicOverlay
+
+extension LocationManager {
+    public static let failing: Self = .init(
+        authorizationStatus: {
+            XCTFail("`authorizationStatus` was not implemented.")
+            return .notDetermined
+        },
+        requestWhenInUseAuthorization: {
+            XCTFail("`requestWhenInUseAuthorization` was not implemented.")
+        },
+        requestLocation: {
+            XCTFail("`requestLocation` was not implemented.")
+        },
+        lastLocationCoordinate: {
+            XCTFail("`lastLocationCoordinate` was not implemented.")
+            return nil
+        },
+        delegate: .failing
+    )
+}
+
+extension LocationManager.LocationCoordinate {
+    public static func fixture(
+        latitude: CLLocationDegrees = .zero,
+        longitude: CLLocationDegrees = .zero
+    ) -> Self {
+        .init(
+            latitude: latitude,
+            longitude: longitude
+        )
+    }
+}
+#endif

@@ -52,8 +52,8 @@ struct NearMeFeature: ReducerProtocol {
         switch action {
         case .onAppear:
             let status = locationManager.authorizationStatus()
-            guard !status.needsPermissionRequest else {
-                state.viewStage = .noLocationPermission
+            guard status.needsPermissionRequest == false else {
+                state.viewStage = .error(.noLocationPermission)
                 return .concatenate(
                     .init(value: .delegate(.needsLocationPermission)),
                     .init(value: ._internal(.observeLocationUpdates))
@@ -67,7 +67,7 @@ struct NearMeFeature: ReducerProtocol {
                 .init(value: ._internal(.observeLocationUpdates))
             )
             
-        case .onErrorRetryButtonTapped:
+        case .onRetryButtonTapped:
             return .init(value: ._internal(.loadVenuesUsingCurrentLocation))
             
         case .onPullToRefresh:
@@ -81,12 +81,16 @@ struct NearMeFeature: ReducerProtocol {
             
         case .dismissRadiusSheet:
             state.route = nil
-            state.radiusSelectionState = nil
             return .none
+            
+        case .onDisappear:
+            return .cancel(id: LocationManagerObservationID.self)
         }
     }
     
     // MARK: - Internal Actions Handler
+    
+    private enum LocationManagerObservationID {}
     
     private func reduce(
         into state: inout State,
@@ -99,21 +103,26 @@ struct NearMeFeature: ReducerProtocol {
                 .receive(on: mainQueue)
                 .eraseToEffect()
                 .map { ._internal(.handleLocationManagerEvent($0)) }
+                .cancellable(id: LocationManagerObservationID.self)
             
         case let .handleLocationManagerEvent(event):
             switch event {
-            case .didChangeAuthorization:
+            case let .didChangeAuthorization(auth):
+                guard auth.needsPermissionRequest == false else {
+                    state.viewStage = .error(.noLocationPermission)
+                    return .none
+                }
                 return .init(value: ._internal(.loadVenuesUsingCurrentLocation))
-            case .didFailWithError:
-                state.viewStage = .error
-                return .none
-            case let .didUpdateLocations(locations):
-                let needsPermissionRequest = locationManager.authorizationStatus().needsPermissionRequest
-                guard
-                    !needsPermissionRequest,
-                    let coordinate = locations.last?.coordinate
-                else { return .none }
                 
+            case .didFailWithError:
+                state.viewStage = .error(.locationManagerFailed)
+                return .none
+                
+            case let .didUpdateLocations(locations):
+                guard let coordinate = locations.last?.coordinate else {
+                    state.viewStage = .error(.noValidLocation)
+                    return .none
+                }
                 let request: SearchPlacesRequest = .init(
                     latitude: coordinate.latitude,
                     longitude: coordinate.longitude,
@@ -123,14 +132,9 @@ struct NearMeFeature: ReducerProtocol {
             }
             
         case .loadVenuesUsingCurrentLocation:
-            guard
-                let coordinate = locationManager.lastLocation()?.coordinate
-            else {
-                state.viewStage = .loading
+            guard let coordinate = locationManager.lastLocationCoordinate() else {
                 return .concatenate(
-                    .fireAndForget {
-                        locationManager.requestLocation()
-                    },
+                    .fireAndForget { locationManager.requestLocation() },
                     .init(value: ._internal(.observeLocationUpdates))
                 )
             }
@@ -142,6 +146,7 @@ struct NearMeFeature: ReducerProtocol {
             return .init(value: ._internal(.loadVenues(request)))
             
         case let .loadVenues(request):
+            state.viewStage = .loading
             return .task { @MainActor [placesService] in
                 let result: TaskResult<[FoursquarePlace]>
                 do {
@@ -162,8 +167,9 @@ struct NearMeFeature: ReducerProtocol {
             return .none
             
         case .searchPlacesResult(.failure):
-            state.viewStage = .error
+            state.viewStage = .error(.serviceError)
             return .none
+            
         // Child Flows
         case let .radiusSelection(action):
             return reduceRadiusSelectionScene(

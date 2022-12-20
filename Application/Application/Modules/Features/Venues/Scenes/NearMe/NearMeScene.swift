@@ -32,6 +32,7 @@ struct NearMeScene: View {
                     )
                 }
             )
+            .onDisappear { viewStore.send(.view(.onDisappear)) }
         }
     }
     
@@ -73,20 +74,16 @@ struct NearMeScene: View {
             switch viewStore.state {
             case .loading:
                 loadingView
-            case .noLocationPermission:
-                noLocationPermissionView
             case let .venuesLoaded(cards):
                 listView(cards)
             case .empty:
                 EmptyContentView(
                     title: L10n.NearMe.EmptyView.title,
                     subtitle: L10n.NearMe.EmptyView.subtitle,
-                    onRefresh: { viewStore.send(.view(.onErrorRetryButtonTapped)) }
+                    onRefresh: { viewStore.send(.view(.onRetryButtonTapped)) }
                 )
-            case .error:
-                ErrorView(
-                    onRetry: { viewStore.send(.view(.onErrorRetryButtonTapped)) }
-                )
+            case let .error(failure):
+                errorView(for: failure)
             }
         }
     }
@@ -96,21 +93,6 @@ struct NearMeScene: View {
             Spacer()
             ProgressView()
             Spacer()
-        }
-    }
-    
-    private var noLocationPermissionView: some View {
-        WithViewStore(store.stateless) { viewStore in
-            InformationView(
-                data: .init(
-                    title: L10n.NearMe.InfoView.NoLocation.text,
-                    image: .errorTriangle
-                ),
-                actionButton: .init(
-                    text: L10n.NearMe.InfoView.NoLocation.buttonTitle,
-                    action: { viewStore.send(.view(.requestLocationPermissionsButtonTapped)) }
-                )
-            )
         }
     }
     
@@ -124,6 +106,29 @@ struct NearMeScene: View {
             .listRowSeparator(.visible)
             .listStyle(.inset)
             .refreshable { viewStore.send(.view(.onPullToRefresh)) }
+        }
+    }
+    
+    @ViewBuilder
+    private func errorView(for failure: NearMeFeature.State.ViewStage.Failure) -> some View {
+        WithViewStore(store.stateless) { viewStore in
+            switch failure {
+            case .noLocationPermission:
+                InformationView(
+                    data: .init(
+                        title: L10n.NearMe.InfoView.NoLocation.text,
+                        image: .errorTriangle
+                    ),
+                    actionButton: .init(
+                        text: L10n.NearMe.InfoView.NoLocation.buttonTitle,
+                        action: { viewStore.send(.view(.requestLocationPermissionsButtonTapped)) }
+                    )
+                )
+            case .locationManagerFailed, .serviceError, .noValidLocation:
+                ErrorView( // TODO: Better handling of the errors
+                    onRetry: { viewStore.send(.view(.onRetryButtonTapped)) }
+                )
+            }
         }
     }
 }

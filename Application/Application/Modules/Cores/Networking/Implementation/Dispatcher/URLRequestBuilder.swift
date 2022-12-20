@@ -39,9 +39,10 @@ struct DefaultURLRequestBuilder: URLRequestBuilderProtocol {
             }
 
         case let .urlQuery(parameters):
-            guard var urlComponents = URLComponents(url: endpointURL, resolvingAgainstBaseURL: true) else {
-                return urlRequest
-            }
+            guard var urlComponents = URLComponents(
+                url: endpointURL,
+                resolvingAgainstBaseURL: true
+            ) else { return urlRequest }
             urlComponents.queryItems = parameters.map { .init(name: $0.key, value: $0.value) }
             urlRequest.url = urlComponents.url
 
@@ -55,3 +56,13 @@ struct DefaultURLRequestBuilder: URLRequestBuilderProtocol {
         return urlRequest
     }
 }
+
+
+#if DEBUG
+final class URLRequestBuilderStub: URLRequestBuilderProtocol {
+    var buildResultToBeReturned: Result<URLRequest, Error> = .success(.init(url: .dummy()))
+    func build(from _: HTTPRequestProtocol) throws -> URLRequest {
+        try buildResultToBeReturned.get()
+    }
+}
+#endif

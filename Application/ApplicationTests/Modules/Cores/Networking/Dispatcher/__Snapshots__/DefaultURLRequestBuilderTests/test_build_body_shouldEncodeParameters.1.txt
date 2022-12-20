@@ -1,0 +1,17 @@
+▿ www.dummyurl.com
+  ▿ url: Optional<URL>
+    - some: www.dummyurl.com
+  - cachePolicy: 0
+  - timeoutInterval: 60.0
+  - mainDocumentURL: Optional<URL>.none
+  - networkServiceType: NSURLRequestNetworkServiceType.NSURLRequestNetworkServiceType
+  - allowsCellularAccess: true
+  ▿ httpMethod: Optional<String>
+    - some: "GET"
+  ▿ allHTTPHeaderFields: Optional<Dictionary<String, String>>
+    - some: 0 key/value pairs
+  ▿ httpBody: Optional<Data>
+    - some: 37 bytes
+  - httpBodyStream: Optional<NSInputStream>.none
+  - httpShouldHandleCookies: true
+  - httpShouldUsePipelining: false
