@@ -1,7 +1,7 @@
 import Foundation
 import Network
 
-protocol NetworkStatusManagerProtocol {
+protocol NetworkStatusManagerProtocol: AnyObject {
     func isNetworkReachable() -> Bool
 }
 

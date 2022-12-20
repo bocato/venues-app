@@ -49,9 +49,10 @@ public struct AnyHTTPRequest: HTTPRequestProtocol {
 
 #if DEBUG
 public struct DummyHTTPRequest: HTTPRequestProtocol {
+    public init() {}
+    
     public var baseURL: URL { URL(string: "www.dummy.com")! }
     public var path: String { "" }
     public var method: HTTPMethod { .get }
-    public init() {}
 }
 #endif
